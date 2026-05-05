@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5149 – Maximilian Kelm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#060606;--white:#eeebe4;--gray:#0e0e0e;--border:rgba(255,255,255,0.07);--muted:rgba(238,235,228,0.35)}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 3.5rem;transition:padding 0.4s,background 0.4s,border-color 0.4s;border-bottom:1px solid transparent}
+nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:28px}
+.nav-links{display:flex;gap:2.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.25s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;color:var(--black);background:var(--white);padding:0.6rem 1.6rem;text-decoration:none}
+
+.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:0 3.5rem 4rem;z-index:2}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,10vw,9.5rem);line-height:0.88}
+.hero-title .dim{color:rgba(238,235,228,0.18)}
+.hero-desc{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.7;max-width:280px;margin-top:2rem}
+.hero-scroll{display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;margin-top:3rem}
+.scroll-line{width:1px;height:50px;background:var(--border);overflow:hidden;position:relative}
+.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--white);animation:scrollLine 1.8s ease-in-out infinite}
+@keyframes scrollLine{0%{top:-100%}100%{top:100%}}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,rgba(6,6,6,0.7) 30%,rgba(6,6,6,0.2) 60%,transparent 100%),linear-gradient(to top,rgba(6,6,6,0.6) 0%,transparent 35%)}
+
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.2rem 0;overflow:hidden}
+.marquee-track{display:inline-flex;white-space:nowrap;animation:marquee 35s linear infinite;min-width:max-content}
+.marquee-item{display:inline-flex;align-items:center;gap:2rem;padding:0 2rem;flex-shrink:0}
+.marquee-item span{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:0.12em;color:rgba(238,235,228,0.22)}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:rgba(238,235,228,0.15)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+section{padding:8rem 3.5rem}
+.reveal{opacity:0;transition:opacity 0.9s ease}
+.reveal.visible{opacity:1}
+.section-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;display:flex;align-items:center;gap:1rem}
+.section-label::before{content:'';width:30px;height:1px;background:var(--muted)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:0.9;margin-bottom:3rem}
+
+.services-section{background:var(--gray)}
+.services-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.services-intro{font-size:0.95rem;font-weight:300;color:var(--muted);line-height:1.8}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.service-card{background:var(--gray);padding:3rem 2rem 2.5rem;position:relative;overflow:hidden;transition:background 0.4s;text-decoration:none;color:var(--white);display:block}
+.service-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.service-card:hover{background:#141414}
+.service-card:hover::before{transform:scaleX(1)}
+.svc-num{font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:3rem;display:block}
+.svc-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:1rem;line-height:1}
+.svc-desc{font-size:0.83rem;color:var(--muted);line-height:1.7;font-weight:300}
+.svc-arrow{font-size:0.75rem;letter-spacing:0.1em;color:var(--muted);margin-top:1.5rem;display:block;transition:color 0.3s}
+.service-card:hover .svc-arrow{color:var(--white)}
+
+.portfolio-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
+.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.p-item{position:relative;overflow:hidden}
+.p-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease}
+.p-item:hover img{transform:scale(1.04)}
+.p-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,0.85) 0%,transparent 55%);opacity:0;transition:opacity 0.4s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem}
+.p-item:hover .p-overlay{opacity:1}
+.p-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.4rem}
+.p-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem}
+.p-item.a{grid-column:1/8;grid-row:1;height:480px}
+.p-item.b{grid-column:8/13;grid-row:1;height:480px}
+.p-item.c{grid-column:1/5;grid-row:2;height:480px}
+.p-item.d{grid-column:5/9;grid-row:2;height:480px}
+.p-item.e{grid-column:9/13;grid-row:2;height:480px}
+.p-item.f{grid-column:1/7;grid-row:3;height:380px}
+.p-item.g{grid-column:7/13;grid-row:3;height:380px}
+
+.trust-section{background:var(--black);padding:8rem 3.5rem}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-bottom:4rem}
+.trust-lead{font-size:1.1rem;font-weight:300;color:var(--white);line-height:1.8;border-left:1px solid var(--border);padding-left:1.5rem}
+.trust-text{font-size:0.9rem;font-weight:300;color:rgba(238,235,228,0.5);line-height:1.9;margin-bottom:1.5rem}
+.trust-imgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+.trust-imgs img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+
+.about-section{background:var(--gray)}
+.about-inner{display:grid;grid-template-columns:5fr 7fr;gap:8rem;align-items:start}
+.about-img-wrap{position:sticky;top:120px}
+.about-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 35%;display:block}
+.about-caption{display:flex;justify-content:space-between;margin-top:1rem;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.about-lead{font-size:1.2rem;font-weight:300;color:var(--white);line-height:1.7;margin-bottom:2rem;border-left:1px solid var(--border);padding-left:1.5rem}
+.about-text{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);margin:3rem 0}
+.stat{padding:2rem 1.5rem;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;margin-bottom:0.4rem}
+.stat-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted)}
+.btn-white{background:var(--white);color:var(--black);padding:1.2rem 3rem;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block}
+
+.contact-inner{max-width:900px;margin:0 auto;text-align:center}
+.contact-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,9rem);line-height:0.85;margin-bottom:2.5rem}
+.contact-dim{color:rgba(238,235,228,0.15)}
+.contact-link{display:inline-block;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:1.2rem 3rem;margin-top:1rem;transition:all 0.3s;position:relative;overflow:hidden}
+.contact-link::before{content:'';position:absolute;inset:0;background:var(--white);transform:translateY(101%);transition:transform 0.4s}
+.contact-link:hover{color:var(--black)}
+.contact-link:hover::before{transform:translateY(0)}
+.contact-link span{position:relative;z-index:1}
+
+footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+.footer-links{display:flex;gap:2.5rem}
+.footer-links a{font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.25s}
+.footer-links a:hover{color:var(--white)}
+
+@media(max-width:960px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .nav-cta{font-size:0.65rem;padding:0.5rem 1rem}
+  .hero{grid-template-columns:1fr;height:auto;min-height:100vh}
+  .hero-left{padding:6rem 1.5rem 3rem}
+  .hero-right{height:65vw}
+  .hero-scroll{display:none}
+  section{padding:3.5rem 1.5rem}
+  .services-header{grid-template-columns:1fr;gap:1rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .portfolio-header{flex-direction:column;gap:1rem}
+  .portfolio-grid{grid-template-columns:1fr 1fr;gap:3px}
+  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g{grid-column:auto;grid-row:auto;height:200px}
+  .p-overlay{opacity:1}
+  .trust-grid{grid-template-columns:1fr;gap:2rem}
+  .trust-section{padding:3.5rem 1.5rem}
+  .about-inner{grid-template-columns:1fr;gap:2rem}
+  .about-img-wrap{position:static}
+  .about-img{aspect-ratio:2/3;object-position:center 35%}
+  .about-stats{grid-template-columns:1fr 1fr 1fr}
+  .stat{padding:1.2rem 0.8rem}
+  .stat-num{font-size:2rem}
+  .contact-big{font-size:clamp(3rem,12vw,5rem)}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
+  .footer-links{gap:1.5rem}
+  .btn-white{width:100%;text-align:center;padding:1rem 2rem}
+}
+@media(max-width:480px){
+  .services-grid{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:1fr;gap:3px}
+  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g{height:260px}
+  .about-stats{grid-template-columns:1fr 1fr 1fr}
+  .stat-num{font-size:1.6rem}
+  .trust-imgs{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo"><img loading="lazy" src="images/logo.png" alt="5149"></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#trust">Vertrauen</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <a href="mailto:kontakt@fiftyone49.de" class="nav-cta">Anfrage stellen</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">We Create You</p>
+    <h1 class="hero-title">Content<br>that<br><span class="dim">moves.</span></h1>
+    <p class="hero-desc">Am Spielfeldrand, hinter den Kulissen, im Studio. Für Athleten und Marken die keinen Platz für mittelmäßigen Content haben.</p>
+    <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" loading="eager" fetchpriority="high" src="images/hero.jpg" alt="Maximilian Kelm">
+    <div class="hero-overlay"></div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Porsche</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Volkswagen</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reebok</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>NutriLuv Health</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Öffentliche BS</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>BetterProtein</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Rehband</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>ThePace</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reboots</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Porsche</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Volkswagen</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reebok</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>NutriLuv Health</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Öffentliche BS</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>BetterProtein</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Rehband</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>ThePace</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reboots</span><div class="marquee-dot"></div></div>
+  </div>
+</div>
+
+<section class="services-section" id="services">
+  <div class="reveal">
+    <div class="services-header">
+      <div><div class="section-label">Was ich biete</div><h2 class="section-title">Services</h2></div>
+      <p class="services-intro">Ich liefere Content der funktioniert. Schnell, präzise und auf den Punkt. Von der ersten Idee bis zur finalen Datei.</p>
+    </div>
+    <div class="services-grid">
+      <a href="fotografie.html" class="service-card"><span class="svc-num">01</span><div class="svc-name">Fotografie</div><p class="svc-desc">Sport, People, Corporate. Bilder die sofort wirken und in Erinnerung bleiben.</p><span class="svc-arrow">Mehr erfahren →</span></a>
+      <a href="videografie.html" class="service-card"><span class="svc-num">02</span><div class="svc-name">Videografie</div><p class="svc-desc">Eventbegleitung, Kampagnen, Reels. Schneller, authentischer Content der performt.</p><span class="svc-arrow">Mehr erfahren →</span></a>
+      <a href="postproduktion.html" class="service-card"><span class="svc-num">03</span><div class="svc-name">Postprod.</div><p class="svc-desc">Eigenes oder geliefertes Material. Ich schneide, coloriere und liefere fertig zum Posten.</p><span class="svc-arrow">Mehr erfahren →</span></a>
+      <a href="socialmedia.html" class="service-card"><span class="svc-num">04</span><div class="svc-name">Social Media</div><p class="svc-desc">Strategie, Planung und Management. Damit dein Feed wächst und konvertiert.</p><span class="svc-arrow">Mehr erfahren →</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <div><div class="section-label">Ausgewählte Arbeiten</div><h2 class="section-title" style="margin-bottom:0">Portfolio</h2></div>
+  </div>
+  <div class="portfolio-grid reveal">
+    <div class="p-item a"><img loading="lazy" src="images/auftrag-porsche.jpg" alt="Porsche GT3" style="object-position:center 65%;"><div class="p-overlay"><div class="p-tag">Automotive · Porsche</div><div class="p-title">Porsche GT3 Cup</div></div></div>
+    <div class="p-item b"><img loading="lazy" src="images/auftrag-kerber.jpg" alt="Kerber" style="object-position:center 30%;"><div class="p-overlay"><div class="p-tag">Corporate · NutriLuv</div><div class="p-title">Kerber Campaign</div></div></div>
+    <div class="p-item c"><img loading="lazy" src="images/auftrag-oslo.jpg" alt="Oslo" style="object-position:center 30%;"><div class="p-overlay"><div class="p-tag">People · Oslo</div><div class="p-title">Better Protein</div></div></div>
+    <div class="p-item d"><img loading="lazy" src="images/auftrag-kerber-training.jpg" alt="Kerber Training" style="object-position:center 25%;"><div class="p-overlay"><div class="p-tag">Sport · NutriLuv</div><div class="p-title">Kerber Training</div></div></div>
+    <div class="p-item e"><img loading="lazy" src="images/auftrag-sport.jpg" alt="Sport" style="object-position:center 15%;"><div class="p-overlay"><div class="p-tag">Sport · Fitness</div><div class="p-title">Athlete Content</div></div></div>
+    <div class="p-item f"><img loading="lazy" src="images/auftrag-pudeldame.jpg" alt="Pudeldame" style="object-position:center 25%;"><div class="p-overlay"><div class="p-tag">Music · Live</div><div class="p-title">Pudeldame</div></div></div>
+    <div class="p-item g"><img loading="lazy" src="images/auftrag-bmg.jpg" alt="BMG" style="object-position:center 60%;"><div class="p-overlay"><div class="p-tag">Sport · Bundesliga</div><div class="p-title">BMG vs Köln</div></div></div>
+  </div>
+</section>
+
+<section class="trust-section" id="trust">
+  <div style="max-width:1100px;margin:0 auto;" class="reveal">
+    <div class="section-label">Professionalität</div>
+    <h2 class="section-title">Vertrauen ist<br>Teil des Jobs.</h2>
+    <div class="trust-grid">
+      <p class="trust-lead">Ich arbeite regelmäßig mit Athleten, Persönlichkeiten und Marken die Wert auf Diskretion legen. Diskretion ist für mich kein Extra. Sie gehört dazu.</p>
+      <div>
+        <p class="trust-text"><em>"Egal mit wem ich arbeite. Ich bin Creator, nicht Fan."</em></p>
+        <p class="trust-text">Professioneller Umgang ist für mich keine Option, sondern Selbstverständlichkeit. Das schätzen meine Kunden. Und genau deshalb kommen sie wieder.</p>
+      </div>
+    </div>
+    <div class="trust-imgs">
+      <img loading="lazy" src="images/trust-luca-netz.jpg" alt="Luca Netz" style="object-position:center 20%;">
+      <img loading="lazy" src="images/trust-kerber-lab.jpg" alt="Kerber Lab">
+      <img loading="lazy" src="images/trust-vw-event.jpg" alt="VW Event" style="object-position:center 20%;">
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap reveal">
+      <img loading="lazy" class="about-img" src="images/about.jpg" alt="Maximilian Kelm">
+      <div class="about-caption"><span>Maximilian Kelm</span><span>Braunschweig</span></div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">Über mich</div>
+      <h2 class="section-title">Macher.<br>Nicht<br>Berater.</h2>
+      <p class="about-lead">Ich bin Maximilian. Fotograf, Videograf und Social Media Stratege aus Braunschweig.</p>
+      <p class="about-text">Ich arbeite dort, wo es schnell gehen muss und trotzdem gut aussehen soll: am Spielfeldrand, hinter den Kulissen, im Studio und auf Events. Mein Vorteil: Ich brauche kein großes Team und keine langen Briefings. Ich verstehe schnell, liefere schneller.</p>
+      <p class="about-text">Meine Kunden sind Marken und Athleten die wissen, dass guter Content kein Zufall ist. Erfahrung, Geschwindigkeit und ein Auge für den entscheidenden Moment.</p>
+      <div class="about-stats">
+        <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Jahre Erfahrung</div></div>
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Projekte</div></div>
+        <div class="stat"><div class="stat-num">DE/WW</div><div class="stat-label">Einsatzgebiet</div></div>
+      </div>
+      <a href="mailto:kontakt@fiftyone49.de" class="btn-white">Zusammenarbeiten</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div class="section-label" style="justify-content:center">Kontakt</div>
+    <div class="contact-big">Lass<br><span class="contact-dim">uns was</span><br>kreieren.</div>
+    <a href="mailto:kontakt@fiftyone49.de" class="contact-link"><span>kontakt@fiftyone49.de</span></a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 5149 · Maximilian Kelm</span>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/fiftyone_49/" target="_blank">Instagram</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  if(window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+if('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e, i) {
+      if(e.isIntersecting) {
+        setTimeout(function() { e.target.classList.add('visible'); }, i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(r) { obs.observe(r); });
+}
+</script>
+</body>
+</html>
