@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media – 5149 · Maximilian Kelm</title>
+<meta name="description" content="Social Media Strategie und Account Management. Aus Erfahrung als Manager, Shopbetreiber, Influencer-Partner und Creator. Maximilian Kelm aus Braunschweig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+:root{--black:#060606;--white:#eeebe4;--gray:#0e0e0e;--border:rgba(255,255,255,0.07);--muted:rgba(238,235,228,0.35)}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 3.5rem;transition:padding 0.4s,background 0.4s,border-color 0.4s;border-bottom:1px solid transparent;background:rgba(6,6,6,0.6);backdrop-filter:blur(10px)}
+nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:28px}
+.nav-links{display:flex;gap:2.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.25s}
+.nav-links a:hover{color:var(--white)}
+.has-dropdown{position:relative}
+.has-dropdown>a{display:inline-flex;align-items:center;gap:0.4rem}
+.has-dropdown>a::after{content:'';width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform 0.3s}
+.has-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
+.dropdown{position:absolute;top:100%;left:-1.2rem;margin-top:1.4rem;min-width:220px;background:rgba(6,6,6,0.96);backdrop-filter:blur(20px);border:1px solid var(--border);padding:0.6rem 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown::before{content:'';position:absolute;top:-1.4rem;left:0;right:0;height:1.4rem}
+.dropdown a{display:block;padding:0.7rem 1.4rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);transition:color 0.2s,background 0.2s}
+.dropdown a:hover{color:var(--white);background:rgba(255,255,255,0.04)}
+.nav-cta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;color:var(--black);background:var(--white);padding:0.6rem 1.6rem;text-decoration:none}
+
+/* HERO with portrait */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch;overflow:hidden}
+.hero-left{padding:8rem 3.5rem 4rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:2}
+.hero-breadcrumb{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;display:flex;align-items:center;gap:0.8rem}
+.hero-breadcrumb a{color:var(--muted);transition:color 0.25s}
+.hero-breadcrumb a:hover{color:var(--white)}
+.hero-breadcrumb span{color:var(--white)}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9vw,8.5rem);line-height:0.85;margin-bottom:2.5rem}
+.hero-title .dim{color:rgba(238,235,228,0.2)}
+.hero-desc{font-size:1rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.7;max-width:480px}
+.hero-right{position:relative;background:#15171a;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,rgba(6,6,6,0.4) 25%,transparent 60%)}
+
+/* INTRO STATEMENT */
+.intro-section{padding:10rem 3.5rem;background:var(--black)}
+.intro-inner{max-width:1100px;margin:0 auto}
+.intro-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.intro-eyebrow::before{content:'';width:30px;height:1px;background:var(--muted)}
+.intro-statement{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin-bottom:3rem}
+.intro-statement .dim{color:rgba(238,235,228,0.2)}
+.intro-text{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.intro-p{font-size:1rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.9}
+
+/* TWO PILLARS — clean and lean */
+.pillars-section{padding:8rem 3.5rem;background:var(--gray)}
+.pillars-header{max-width:1300px;margin:0 auto 4rem}
+.section-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;display:flex;align-items:center;gap:1rem}
+.section-label::before{content:'';width:30px;height:1px;background:var(--muted)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:0.9}
+.section-title .dim{color:rgba(238,235,228,0.2)}
+.pillars-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.pillar{background:var(--gray);padding:3.5rem 3rem;display:flex;flex-direction:column;transition:background 0.4s}
+.pillar:hover{background:#141414}
+.pillar-num{font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:2rem}
+.pillar-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,3.5vw,3.2rem);line-height:0.95;margin-bottom:1.5rem}
+.pillar-title .dim{color:rgba(238,235,228,0.25)}
+.pillar-desc{font-size:0.95rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.8;margin-bottom:2rem}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:auto;padding-top:2rem;border-top:1px solid var(--border)}
+.pillar-tag{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:0.4rem 0.9rem}
+
+/* CTA */
+.cta-section{padding:10rem 3.5rem;background:var(--black)}
+.cta-inner{max-width:1000px;margin:0 auto;text-align:center}
+.cta-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.cta-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7.5rem);line-height:0.9;margin-bottom:3rem}
+.cta-big .dim{color:rgba(238,235,228,0.18)}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--white);color:var(--black);padding:1.2rem 3rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:opacity 0.3s}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{border:1px solid var(--border);color:var(--white);padding:1.2rem 3rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:background 0.3s,color 0.3s}
+.btn-ghost:hover{background:var(--white);color:var(--black)}
+
+footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;background:var(--black)}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+.footer-links{display:flex;gap:2.5rem}
+.footer-links a{font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.25s}
+.footer-links a:hover{color:var(--white)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Burger Menu */
+.burger{display:none;flex-direction:column;justify-content:center;width:28px;height:28px;gap:6px;cursor:pointer;background:transparent;border:none;padding:0;z-index:600}
+.burger span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform 0.35s ease,opacity 0.25s ease}
+.burger.open span:nth-child(1){transform:translateY(3.75px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-3.75px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:550;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);text-decoration:none;letter-spacing:0.05em;line-height:1;transition:opacity 0.25s}
+.mobile-menu a:hover{opacity:0.5}
+.mobile-menu .submenu{display:flex;flex-direction:column;gap:1.2rem;margin-top:-1rem}
+.mobile-menu .submenu a{font-size:1.4rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;text-align:center}
+.mobile-menu .submenu a:hover{color:var(--white);opacity:1}
+.mobile-menu .mobile-cta{margin-top:1.5rem;background:var(--white);color:var(--black);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+
+@media(max-width:960px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .hero{grid-template-columns:1fr;height:auto;min-height:100vh}
+  .hero-left{padding:6rem 1.5rem 3rem;order:2}
+  .hero-right{order:1;height:60vw;min-height:380px;max-height:520px}
+  .hero-overlay{background:linear-gradient(to bottom,transparent 0%,rgba(6,6,6,0.4) 70%,var(--black) 100%)}
+  .intro-section{padding:5rem 1.5rem}
+  .intro-text{grid-template-columns:1fr;gap:2rem}
+  .pillars-section{padding:5rem 1.5rem}
+  .pillars-grid{grid-template-columns:1fr}
+  .pillar{padding:2.5rem 1.8rem}
+  .cta-section{padding:5rem 1.5rem}
+  .cta-buttons{flex-direction:column}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
+  .footer-links{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img loading="lazy" src="images/logo.png" alt="5149"></a>
+  <ul class="nav-links">
+    <li class="has-dropdown">
+      <a href="index.html#services">Services</a>
+      <div class="dropdown">
+        <a href="fotografie.html">Fotografie</a>
+        <a href="videografie.html">Videografie</a>
+        <a href="postproduktion.html">Postproduktion</a>
+        <a href="socialmedia.html">Social Media</a>
+      </div>
+    </li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#trust">Vertrauen</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Kontakt</a></li>
+  </ul>
+  <a href="mailto:kontakt@fiftyone49.de" class="nav-cta">Anfrage stellen</a>
+  <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Start</a>
+  <a href="index.html#services">Services</a>
+  <div class="submenu">
+    <a href="fotografie.html">Fotografie</a>
+    <a href="videografie.html">Videografie</a>
+    <a href="postproduktion.html">Postproduktion</a>
+    <a href="socialmedia.html">Social Media</a>
+  </div>
+  <a href="index.html#portfolio">Portfolio</a>
+  <a href="index.html#trust">Vertrauen</a>
+  <a href="index.html#about">About</a>
+  <a href="mailto:kontakt@fiftyone49.de" class="mobile-cta">Anfrage stellen</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-breadcrumb"><a href="index.html">5149</a> / <a href="index.html#services">Services</a> / <span>Social Media</span></div>
+    <h1 class="hero-title">Social Media.<br><span class="dim">Aus allen</span><br>Perspektiven.</h1>
+    <p class="hero-desc">Ich war Manager für eine Fitnessmarke, habe eigene Online-Shops betrieben, mit Influencern gearbeitet und selbst als Creator. Vier Perspektiven, die ich in jede Strategie und jeden Account einbringe.</p>
+  </div>
+  <div class="hero-right">
+    <img src="images/sm-hero-max.jpg" alt="Maximilian Kelm">
+    <div class="hero-overlay"></div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="intro-inner reveal">
+    <div class="intro-eyebrow">Social Media · 04</div>
+    <h2 class="intro-statement">Strategie ist<br>kein Bauchgefühl.<br><span class="dim">Sondern Erfahrung.</span></h2>
+    <div class="intro-text">
+      <p class="intro-p">Es gibt Leute, die machen Social Media. Und es gibt Leute, die haben Social Media gemacht. Den Unterschied merkt man im ersten Gespräch. Ich habe nicht nur Accounts wachsen sehen, ich habe sie gebaut. Aus allen Richtungen.</p>
+      <p class="intro-p">Meine Erfahrung als Manager, eigene Shops, jahrelange Zusammenarbeit mit Influencern und meine Zeit als Creator zahlen direkt auf das ein, was ich heute liefere. Strategien, die nicht aus dem Lehrbuch kommen, sondern aus der Praxis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TWO PILLARS -->
+<section class="pillars-section">
+  <div class="pillars-header reveal">
+    <div class="section-label">Was ich anbiete</div>
+    <h2 class="section-title">Strategie<br>oder ganz.</h2>
+  </div>
+  <div class="pillars-grid reveal">
+    <div class="pillar">
+      <div class="pillar-num">01 / Consulting</div>
+      <h3 class="pillar-title">Strategie<br><span class="dim">die passt.</span></h3>
+      <p class="pillar-desc">Ich analysiere deinen Account, deine Marke und deine Zielgruppe und entwickle daraus eine Strategie, die zu dir passt. Keine Copy-Paste-Decks, keine generischen Best Practices. Sondern ein klarer Plan, was du posten solltest, wie oft und mit welchem Ziel.</p>
+      <div class="pillar-tags"><span class="pillar-tag">Account-Analyse</span><span class="pillar-tag">Zielgruppe</span><span class="pillar-tag">Content-Strategie</span><span class="pillar-tag">Plattform-Mix</span></div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02 / Social Media Management</div>
+      <h3 class="pillar-title">Account<br><span class="dim">komplett.</span></h3>
+      <p class="pillar-desc">Wenn du keinen Bock auf den ganzen Aufwand hast, übernehme ich den kompletten Account. Strategie, Planung, Content-Erstellung und Ausspielung. Du bekommst regelmäßigen Content, der zu deiner Marke passt, und Reichweite, die nicht zufällig ist.</p>
+      <div class="pillar-tags"><span class="pillar-tag">Content-Erstellung</span><span class="pillar-tag">Redaktionsplanung</span><span class="pillar-tag">Posting</span><span class="pillar-tag">Community</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">Bereit?</div>
+    <h2 class="cta-big">Strategie<br><span class="dim">oder gleich ganz?</span></h2>
+    <div class="cta-buttons">
+      <a href="mailto:kontakt@fiftyone49.de" class="btn-primary">Anfrage stellen</a>
+      <a href="index.html#services" class="btn-ghost">Andere Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 5149 · Maximilian Kelm</span>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/fiftyone_49/" target="_blank">Instagram</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+var nav = document.getElementById('nav');
+var burger = document.getElementById('burger');
+var mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', function() {
+  if(window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+burger.addEventListener('click', function() {
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+if('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(r) { obs.observe(r); });
+}
+</script>
+</body>
+</html>
