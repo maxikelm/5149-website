@@ -20,6 +20,15 @@ nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:b
 .nav-links{display:flex;gap:2.8rem;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.25s}
 .nav-links a:hover{color:var(--white)}
+.has-dropdown{position:relative}
+.has-dropdown>a{display:inline-flex;align-items:center;gap:0.4rem}
+.has-dropdown>a::after{content:'';width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform 0.3s}
+.has-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
+.dropdown{position:absolute;top:100%;left:-1.2rem;margin-top:1.4rem;min-width:220px;background:rgba(6,6,6,0.96);backdrop-filter:blur(20px);border:1px solid var(--border);padding:0.6rem 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown::before{content:'';position:absolute;top:-1.4rem;left:0;right:0;height:1.4rem}
+.dropdown a{display:block;padding:0.7rem 1.4rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);transition:color 0.2s,background 0.2s}
+.dropdown a:hover{color:var(--white);background:rgba(255,255,255,0.04)}
 .nav-cta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;color:var(--black);background:var(--white);padding:0.6rem 1.6rem;text-decoration:none}
 
 /* HERO – fullscreen with massive image */
@@ -132,6 +141,9 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
 .mobile-menu.open{opacity:1;visibility:visible}
 .mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);text-decoration:none;letter-spacing:0.05em;line-height:1;transition:opacity 0.25s}
 .mobile-menu a:hover{opacity:0.5}
+.mobile-menu .submenu{display:flex;flex-direction:column;gap:1.2rem;margin-top:-1rem}
+.mobile-menu .submenu a{font-size:1.4rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;text-align:center}
+.mobile-menu .submenu a:hover{color:var(--white);opacity:1}
 .mobile-menu .mobile-cta{margin-top:1.5rem;background:var(--white);color:var(--black);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
 
 @media(max-width:960px){
@@ -172,7 +184,15 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img loading="lazy" src="images/logo.png" alt="5149"></a>
   <ul class="nav-links">
-    <li><a href="index.html#services">Services</a></li>
+    <li class="has-dropdown">
+      <a href="index.html#services">Services</a>
+      <div class="dropdown">
+        <a href="fotografie.html">Fotografie</a>
+        <a href="videografie.html">Videografie</a>
+        <a href="postproduktion.html">Postproduktion</a>
+        <a href="socialmedia.html">Social Media</a>
+      </div>
+    </li>
     <li><a href="index.html#portfolio">Portfolio</a></li>
     <li><a href="index.html#trust">Vertrauen</a></li>
     <li><a href="index.html#about">About</a></li>
@@ -185,6 +205,12 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Start</a>
   <a href="index.html#services">Services</a>
+  <div class="submenu">
+    <a href="fotografie.html">Fotografie</a>
+    <a href="videografie.html">Videografie</a>
+    <a href="postproduktion.html">Postproduktion</a>
+    <a href="socialmedia.html">Social Media</a>
+  </div>
   <a href="index.html#portfolio">Portfolio</a>
   <a href="index.html#trust">Vertrauen</a>
   <a href="index.html#about">About</a>
@@ -212,8 +238,8 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
     <div class="intro-eyebrow">Fotografie · 01</div>
     <h2 class="intro-statement">Ein gutes Foto<br>erklärt sich nicht.<br><span class="dim">Es trifft.</span></h2>
     <div class="intro-text">
-      <p class="intro-p">Ich fotografiere seit über neun Jahren. In dieser Zeit habe ich gelernt, dass es nicht auf das teuerste Equipment ankommt, sondern auf das Auge. Auf den Moment vor dem Moment. Auf die Bereitschaft, dann auszulösen, wenn andere noch nachdenken.</p>
-      <p class="intro-p">Egal ob am Spielfeldrand der Bundesliga, im Industriebetrieb, im Studio oder am Pool in Marbella. Mein Ziel ist immer dasselbe. Bilder die nicht nur gut aussehen, sondern auch funktionieren. Für deine Kampagne, deinen Feed, deine Marke.</p>
+      <p class="intro-p">Neun Jahre hinter der Kamera haben mir eines beigebracht. Nicht das Equipment macht das Foto, sondern das Auge. Ich liefere Content der online sofort funktioniert, in einer Qualität die nicht diskutiert werden muss, zu Preisen die fair sind. Was du am Ende bekommst, ist mehr als auf der Rechnung steht.</p>
+      <p class="intro-p">Beim Sport ist genau das mein Zuhause. Ob Bundesliga, Motorsport oder Functional Fitness, ich kenne den Rhythmus, die Akteure und den Moment der zählt. Aber auch im Industriebetrieb, im Studio oder am Pool in Marbella ist der Anspruch derselbe. Bilder die nicht nur gut aussehen, sondern auch funktionieren. Für deine Kampagne, deinen Feed, deine Marke.</p>
     </div>
   </div>
 </section>
