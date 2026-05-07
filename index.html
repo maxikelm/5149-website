@@ -61,15 +61,21 @@ section{padding:8rem 3.5rem}
 .services-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
 .services-intro{font-size:0.95rem;font-weight:300;color:var(--muted);line-height:1.8}
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
-.service-card{background:var(--gray);padding:3rem 2rem 2.5rem;position:relative;overflow:hidden;transition:background 0.4s;text-decoration:none;color:var(--white);display:block}
-.service-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
-.service-card:hover{background:#141414}
+.service-card{background:var(--gray);position:relative;overflow:hidden;transition:background 0.4s;text-decoration:none;color:var(--white);display:flex;flex-direction:column;min-height:460px}
+.service-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;z-index:4}
 .service-card:hover::before{transform:scaleX(1)}
-.svc-num{font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:3rem;display:block}
-.svc-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:1rem;line-height:1}
-.svc-desc{font-size:0.83rem;color:var(--muted);line-height:1.7;font-weight:300}
-.svc-arrow{font-size:0.75rem;letter-spacing:0.1em;color:var(--muted);margin-top:1.5rem;display:block;transition:color 0.3s}
-.service-card:hover .svc-arrow{color:var(--white)}
+.svc-bg{position:absolute;inset:0;z-index:0}
+.svc-bg img{width:100%;height:100%;object-fit:cover;opacity:0.35;transition:opacity 0.5s ease,transform 0.7s ease}
+.service-card:hover .svc-bg img{opacity:0.55;transform:scale(1.04)}
+.svc-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,14,14,0.4) 0%,rgba(14,14,14,0.7) 50%,rgba(14,14,14,0.95) 100%)}
+.svc-content{position:relative;z-index:2;padding:2.5rem 2rem;display:flex;flex-direction:column;height:100%}
+.svc-num{font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:auto;display:block}
+.svc-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:1rem;line-height:1;margin-top:3rem}
+.svc-desc{font-size:0.83rem;color:rgba(238,235,228,0.7);line-height:1.7;font-weight:300;margin-bottom:1.8rem}
+.svc-button{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);border:1px solid rgba(255,255,255,0.25);padding:0.7rem 1.2rem;align-self:flex-start;transition:background 0.3s,color 0.3s,border-color 0.3s}
+.svc-button::after{content:'→';transition:transform 0.3s}
+.service-card:hover .svc-button{background:var(--white);color:var(--black);border-color:var(--white)}
+.service-card:hover .svc-button::after{transform:translateX(3px)}
 
 .portfolio-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
 .portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
@@ -242,10 +248,42 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
       <p class="services-intro">Ich liefere Content der funktioniert. Schnell, präzise und auf den Punkt. Von der ersten Idee bis zur finalen Datei.</p>
     </div>
     <div class="services-grid">
-      <a href="fotografie.html" class="service-card"><span class="svc-num">01</span><div class="svc-name">Fotografie</div><p class="svc-desc">Sport, People, Corporate. Bilder die sofort wirken und in Erinnerung bleiben.</p><span class="svc-arrow">Mehr erfahren →</span></a>
-      <a href="videografie.html" class="service-card"><span class="svc-num">02</span><div class="svc-name">Videografie</div><p class="svc-desc">Eventbegleitung, Kampagnen, Reels. Schneller, authentischer Content der performt.</p><span class="svc-arrow">Mehr erfahren →</span></a>
-      <a href="postproduktion.html" class="service-card"><span class="svc-num">03</span><div class="svc-name">Postprod.</div><p class="svc-desc">Eigenes oder geliefertes Material. Ich schneide, coloriere und liefere fertig zum Posten.</p><span class="svc-arrow">Mehr erfahren →</span></a>
-      <a href="socialmedia.html" class="service-card"><span class="svc-num">04</span><div class="svc-name">Social Media</div><p class="svc-desc">Strategie, Planung und Management. Damit dein Feed wächst und konvertiert.</p><span class="svc-arrow">Mehr erfahren →</span></a>
+      <a href="fotografie.html" class="service-card">
+        <div class="svc-bg"><img loading="lazy" src="images/auftrag-porsche.jpg" alt=""></div>
+        <div class="svc-content">
+          <span class="svc-num">01</span>
+          <div class="svc-name">Fotografie</div>
+          <p class="svc-desc">Sport, People, Corporate. Bilder die sofort wirken und in Erinnerung bleiben.</p>
+          <span class="svc-button">Mehr Infos</span>
+        </div>
+      </a>
+      <a href="videografie.html" class="service-card">
+        <div class="svc-bg"><img loading="lazy" src="images/auftrag-bmg.jpg" alt=""></div>
+        <div class="svc-content">
+          <span class="svc-num">02</span>
+          <div class="svc-name">Videografie</div>
+          <p class="svc-desc">Eventbegleitung, Kampagnen, Reels. Schneller, authentischer Content der performt.</p>
+          <span class="svc-button">Mehr Infos</span>
+        </div>
+      </a>
+      <a href="postproduktion.html" class="service-card">
+        <div class="svc-bg"><img loading="lazy" src="images/post-timeline.jpg" alt=""></div>
+        <div class="svc-content">
+          <span class="svc-num">03</span>
+          <div class="svc-name">Postprod.</div>
+          <p class="svc-desc">Eigenes oder geliefertes Material. Ich schneide, coloriere und liefere fertig zum Posten.</p>
+          <span class="svc-button">Mehr Infos</span>
+        </div>
+      </a>
+      <a href="socialmedia.html" class="service-card">
+        <div class="svc-bg"><img loading="lazy" src="images/sm-hero-max.jpg" alt=""></div>
+        <div class="svc-content">
+          <span class="svc-num">04</span>
+          <div class="svc-name">Social Media</div>
+          <p class="svc-desc">Strategie, Planung und Management. Damit dein Feed wächst und konvertiert.</p>
+          <span class="svc-button">Mehr Infos</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
