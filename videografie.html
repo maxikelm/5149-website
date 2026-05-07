@@ -60,8 +60,8 @@ nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:b
 .section-label::before{content:'';width:30px;height:1px;background:var(--muted)}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:0.9}
 .section-title .dim{color:rgba(238,235,228,0.2)}
-.pillars-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-.pillar{background:var(--gray);padding:3rem 2.2rem;display:flex;flex-direction:column;transition:background 0.4s;position:relative;overflow:hidden}
+.pillars-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.pillar{background:var(--gray);padding:2.6rem 1.9rem;display:flex;flex-direction:column;transition:background 0.4s;position:relative;overflow:hidden}
 .pillar::before{content:'';position:absolute;top:0;left:0;height:2px;width:60px;background:var(--white);transition:width 0.5s ease}
 .pillar:hover::before{width:100%}
 .pillar:hover{background:#141414}
@@ -71,7 +71,7 @@ nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:b
 .pillar-num{font-family:'Bebas Neue',sans-serif;font-size:0.78rem;letter-spacing:0.2em;color:var(--muted)}
 .pillar-icon{width:36px;height:36px;color:var(--white);opacity:0.85;transition:transform 0.6s ease,opacity 0.3s}
 .pillar:hover .pillar-icon{transform:rotate(15deg);opacity:1}
-.pillar-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,2.8vw,2.6rem);line-height:0.95;margin-bottom:1.3rem;position:relative;z-index:1}
+.pillar-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.7rem,2.3vw,2.2rem);line-height:0.95;margin-bottom:1.2rem;position:relative;z-index:1}
 .pillar-title .dim{color:rgba(238,235,228,0.25)}
 .pillar-desc{font-size:0.92rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.8;margin-bottom:1.5rem;position:relative;z-index:1}
 .pillar-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--border);position:relative;z-index:1}
@@ -84,14 +84,14 @@ nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:b
 .showcase-meta{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
 
 /* Long-form / Quer */
-.video-grid-quer{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.video-grid-quer{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .video-quer{position:relative;aspect-ratio:16/9;background:var(--black);overflow:hidden;border:1px solid var(--border)}
 .video-quer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 
 .showcase-section.dark{background:var(--black)}
 
 /* Hochkant */
-.video-grid-hoch{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.video-grid-hoch{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;max-width:1300px;margin:0 auto}
 .video-hoch{position:relative;aspect-ratio:9/16;background:var(--black);overflow:hidden;border:1px solid var(--border)}
 .video-hoch iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 
@@ -141,6 +141,10 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
 .mobile-menu .submenu a:hover{color:var(--white);opacity:1}
 .mobile-menu .mobile-cta{margin-top:1.5rem;background:var(--white);color:var(--black);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
 
+@media(max-width:1100px){
+  .pillars-grid{grid-template-columns:repeat(2,1fr)}
+  .video-grid-hoch{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:960px){
   nav{padding:1.2rem 1.5rem}
   .nav-links{display:none}
@@ -232,7 +236,7 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
 <section class="pillars-section">
   <div class="pillars-header reveal">
     <div class="section-label">Was ich filme</div>
-    <h2 class="section-title">Drei Welten.<br><span class="dim">Eine Kamera.</span></h2>
+    <h2 class="section-title">Vier Welten.<br><span class="dim">Eine Kamera.</span></h2>
   </div>
   <div class="pillars-grid reveal">
     <!-- EVENTS -->
@@ -281,6 +285,23 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
       <p class="pillar-desc">Vertikales Material das in den ersten zwei Sekunden hooked. Für Instagram, TikTok und YouTube Shorts. Vom Dreh bis zum fertigen Reel aus einer Hand.</p>
       <div class="pillar-tags"><span class="pillar-tag">Reels</span><span class="pillar-tag">TikTok</span><span class="pillar-tag">Shorts</span></div>
     </div>
+    <!-- UGC -->
+    <div class="pillar">
+      <div class="pillar-watermark">04</div>
+      <div class="pillar-head">
+        <div class="pillar-num">04 / UGC</div>
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="15" r="6" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M9 33 C9 26 14 23 20 23 C26 23 31 26 31 33" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="9" r="2" fill="currentColor"/>
+          <circle cx="36" cy="14" r="1.4" fill="currentColor" opacity="0.6"/>
+          <circle cx="34" cy="5" r="1.2" fill="currentColor" opacity="0.4"/>
+        </svg>
+      </div>
+      <h3 class="pillar-title">UGC.<br><span class="dim">Autark.</span></h3>
+      <p class="pillar-desc">Du brauchst Content für deine Marke, hast aber niemanden vor der Kamera? Wir entwickeln gemeinsam das Skript, du schickst mir das Produkt und ich drehe es im passenden Setup. Authentisch, native, ready zum Posten.</p>
+      <div class="pillar-tags"><span class="pillar-tag">Native</span><span class="pillar-tag">Skript</span><span class="pillar-tag">Setup</span></div>
+    </div>
   </div>
 </section>
 
@@ -292,17 +313,20 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
         <div class="section-label">Auswahl Long-Form</div>
         <h2 class="section-title">Quer gedacht.</h2>
       </div>
-      <div class="showcase-meta">3 ausgewählte Cuts</div>
+      <div class="showcase-meta">4 ausgewählte Cuts</div>
     </div>
     <div class="video-grid-quer">
       <div class="video-quer">
-        <iframe src="https://www.youtube.com/embed/lu3FVFNvO3s?rel=0&modestbranding=1" title="Videografie Showcase 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/k1u5WUZe_FI?rel=0&modestbranding=1" title="Videografie Showcase 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video-quer">
         <iframe src="https://www.youtube.com/embed/94azty7Z0uw?rel=0&modestbranding=1" title="Videografie Showcase 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video-quer">
         <iframe src="https://www.youtube.com/embed/zSgFyfOjxm4?rel=0&modestbranding=1" title="Videografie Showcase 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-quer">
+        <iframe src="https://www.youtube.com/embed/qzz7JQ5Mamw?rel=0&modestbranding=1" title="Videografie Showcase 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -316,17 +340,20 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
         <div class="section-label">Auswahl Short-Form</div>
         <h2 class="section-title">Hochkant.</h2>
       </div>
-      <div class="showcase-meta">3 Reels</div>
+      <div class="showcase-meta">4 Reels</div>
     </div>
     <div class="video-grid-hoch">
       <div class="video-hoch">
-        <iframe src="https://www.youtube.com/embed/knlBlGAg2Dw?rel=0&modestbranding=1" title="Reel 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/TIxihOYULO8?rel=0&modestbranding=1" title="Reel 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video-hoch">
         <iframe src="https://www.youtube.com/embed/7zVsXev8Ru0?rel=0&modestbranding=1" title="Reel 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video-hoch">
         <iframe src="https://www.youtube.com/embed/htog8OKU0nI?rel=0&modestbranding=1" title="Reel 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-hoch">
+        <iframe src="https://www.youtube.com/embed/9YYxu0vJLF4?rel=0&modestbranding=1" title="Reel 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
