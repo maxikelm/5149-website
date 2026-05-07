@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotografie – 5149 · Maximilian Kelm</title>
+<meta name="description" content="Fotografie für Sport, People, Corporate und Events. Schnell, präzise, mit einem Auge für den entscheidenden Moment. Maximilian Kelm aus Braunschweig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+:root{--black:#060606;--white:#eeebe4;--gray:#0e0e0e;--border:rgba(255,255,255,0.07);--muted:rgba(238,235,228,0.35)}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 3.5rem;transition:padding 0.4s,background 0.4s,border-color 0.4s;border-bottom:1px solid transparent;background:rgba(6,6,6,0.6);backdrop-filter:blur(10px)}
+nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:28px}
+.nav-links{display:flex;gap:2.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.25s}
+.nav-links a:hover{color:var(--white)}
+.has-dropdown{position:relative}
+.has-dropdown>a{display:inline-flex;align-items:center;gap:0.4rem}
+.has-dropdown>a::after{content:'';width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform 0.3s}
+.has-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
+.dropdown{position:absolute;top:100%;left:-1.2rem;margin-top:1.4rem;min-width:220px;background:rgba(6,6,6,0.96);backdrop-filter:blur(20px);border:1px solid var(--border);padding:0.6rem 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown::before{content:'';position:absolute;top:-1.4rem;left:0;right:0;height:1.4rem}
+.dropdown a{display:block;padding:0.7rem 1.4rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);transition:color 0.2s,background 0.2s}
+.dropdown a:hover{color:var(--white);background:rgba(255,255,255,0.04)}
+.nav-cta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;color:var(--black);background:var(--white);padding:0.6rem 1.6rem;text-decoration:none}
+
+/* HERO – fullscreen with massive image */
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,0.95) 0%,rgba(6,6,6,0.5) 40%,rgba(6,6,6,0.2) 70%,rgba(6,6,6,0.4) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 3.5rem 5rem;width:100%}
+.hero-breadcrumb{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem;display:flex;align-items:center;gap:0.8rem}
+.hero-breadcrumb a{color:var(--muted);text-decoration:none;transition:color 0.25s}
+.hero-breadcrumb a:hover{color:var(--white)}
+.hero-breadcrumb span{color:var(--white)}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,14vw,14rem);line-height:0.85;margin-bottom:2rem}
+.hero-title .dim{color:rgba(238,235,228,0.2)}
+.hero-meta{display:flex;gap:3rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);max-width:900px}
+.hero-meta-item{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.hero-meta-item strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.05em;color:var(--white);margin-bottom:0.3rem}
+
+/* INTRO STATEMENT */
+.intro-section{padding:10rem 3.5rem;background:var(--black);position:relative}
+.intro-inner{max-width:1100px;margin:0 auto}
+.intro-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.intro-eyebrow::before{content:'';width:30px;height:1px;background:var(--muted)}
+.intro-statement{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin-bottom:3rem}
+.intro-statement .dim{color:rgba(238,235,228,0.2)}
+.intro-text{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.intro-p{font-size:1rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.9}
+
+/* BEREICHE - 4 large image cards */
+.bereiche-section{padding:0;background:var(--gray)}
+.bereiche-header{padding:6rem 3.5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end}
+.section-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;display:flex;align-items:center;gap:1rem}
+.section-label::before{content:'';width:30px;height:1px;background:var(--muted)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:0.9}
+.bereiche-intro{font-size:0.95rem;font-weight:300;color:var(--muted);line-height:1.8}
+
+.bereiche-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.bereich{position:relative;height:560px;overflow:hidden;background:var(--gray);text-decoration:none;color:var(--white);display:block}
+.bereich img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s ease;z-index:1}
+.bereich:hover img{transform:scale(1.05)}
+.bereich-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,0.95) 0%,rgba(6,6,6,0.4) 50%,rgba(6,6,6,0.1) 100%);z-index:2}
+.bereich-content{position:absolute;inset:0;padding:3rem;display:flex;flex-direction:column;justify-content:flex-end;z-index:3}
+.bereich-num{font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:auto}
+.bereich-title{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;line-height:0.95;margin-bottom:1rem}
+.bereich-desc{font-size:0.9rem;font-weight:300;color:rgba(238,235,228,0.75);line-height:1.7;max-width:480px}
+.bereich-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.bereich-tag{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:0.4rem 0.9rem}
+
+/* GALLERY – mosaic */
+.gallery-section{padding:8rem 3.5rem 6rem;background:var(--black)}
+.gallery-header{margin-bottom:4rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem}
+.gallery-meta{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+.gallery-grid{column-count:3;column-gap:6px}
+.g-item{break-inside:avoid;margin-bottom:6px;display:block;position:relative;overflow:hidden;background:var(--gray)}
+.g-item img{width:100%;height:auto;display:block;transition:transform 0.7s ease}
+.g-item:hover img{transform:scale(1.04)}
+.g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,0.85) 0%,transparent 60%);opacity:0;transition:opacity 0.4s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem}
+.g-item:hover .g-overlay{opacity:1}
+.g-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem}
+.g-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;line-height:1}
+
+/* PROZESS */
+.prozess-section{padding:10rem 3.5rem;background:var(--gray)}
+.prozess-inner{max-width:1300px;margin:0 auto}
+.prozess-header{margin-bottom:5rem;max-width:700px}
+.prozess-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.prozess-step{background:var(--gray);padding:3rem 2rem;position:relative}
+.prozess-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:rgba(238,235,228,0.18);margin-bottom:1.5rem}
+.prozess-step-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;margin-bottom:1rem;line-height:1}
+.prozess-step-desc{font-size:0.85rem;font-weight:300;color:var(--muted);line-height:1.7}
+
+/* QUOTE BLOCK */
+.quote-section{padding:10rem 3.5rem;background:var(--black);position:relative;overflow:hidden}
+.quote-bg{position:absolute;inset:0;opacity:0.18;z-index:0}
+.quote-bg img{width:100%;height:100%;object-fit:cover}
+.quote-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,rgba(6,6,6,0.5) 50%,var(--black) 100%)}
+.quote-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.quote-mark{font-family:'Bebas Neue',sans-serif;font-size:6rem;line-height:1;color:var(--muted);margin-bottom:1rem}
+.quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.1;margin-bottom:2rem}
+.quote-author{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
+
+/* CTA */
+.cta-section{padding:10rem 3.5rem;background:var(--gray)}
+.cta-inner{max-width:1000px;margin:0 auto;text-align:center}
+.cta-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.cta-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7.5rem);line-height:0.9;margin-bottom:3rem}
+.cta-big .dim{color:rgba(238,235,228,0.18)}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--white);color:var(--black);padding:1.2rem 3rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:opacity 0.3s}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{border:1px solid var(--border);color:var(--white);padding:1.2rem 3rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:background 0.3s,color 0.3s}
+.btn-ghost:hover{background:var(--white);color:var(--black)}
+
+footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;background:var(--black)}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+.footer-links{display:flex;gap:2.5rem}
+.footer-links a{font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.25s}
+.footer-links a:hover{color:var(--white)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Burger Menu */
+.burger{display:none;flex-direction:column;justify-content:center;width:28px;height:28px;gap:6px;cursor:pointer;background:transparent;border:none;padding:0;z-index:600}
+.burger span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform 0.35s ease,opacity 0.25s ease}
+.burger.open span:nth-child(1){transform:translateY(3.75px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-3.75px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:550;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);text-decoration:none;letter-spacing:0.05em;line-height:1;transition:opacity 0.25s}
+.mobile-menu a:hover{opacity:0.5}
+.mobile-menu .submenu{display:flex;flex-direction:column;gap:1.2rem;margin-top:-1rem}
+.mobile-menu .submenu a{font-size:1.4rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;text-align:center}
+.mobile-menu .submenu a:hover{color:var(--white);opacity:1}
+.mobile-menu .mobile-cta{margin-top:1.5rem;background:var(--white);color:var(--black);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+
+@media(max-width:960px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .hero-content{padding:0 1.5rem 3rem}
+  .hero-meta{gap:1.5rem}
+  .intro-section{padding:5rem 1.5rem}
+  .intro-text{grid-template-columns:1fr;gap:2rem}
+  .bereiche-header{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem 3rem}
+  .bereiche-grid{grid-template-columns:1fr}
+  .bereich{height:400px}
+  .bereich-content{padding:2rem}
+  .bereich-title{font-size:2.5rem}
+  .gallery-section{padding:5rem 1.5rem 4rem}
+  .gallery-grid{column-count:2}
+  .prozess-section{padding:5rem 1.5rem}
+  .prozess-grid{grid-template-columns:1fr 1fr}
+  .prozess-num{font-size:3.5rem}
+  .quote-section{padding:5rem 1.5rem}
+  .cta-section{padding:5rem 1.5rem}
+  .cta-buttons{flex-direction:column}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
+  .footer-links{gap:1.5rem}
+}
+@media(max-width:480px){
+  .gallery-grid{column-count:2;column-gap:4px}
+  .g-item{margin-bottom:4px}
+  .prozess-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img loading="lazy" src="images/logo.png" alt="5149"></a>
+  <ul class="nav-links">
+    <li class="has-dropdown">
+      <a href="index.html#services">Services</a>
+      <div class="dropdown">
+        <a href="fotografie.html">Fotografie</a>
+        <a href="videografie.html">Videografie</a>
+        <a href="postproduktion.html">Postproduktion</a>
+        <a href="socialmedia.html">Social Media</a>
+      </div>
+    </li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#trust">Vertrauen</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Kontakt</a></li>
+  </ul>
+  <a href="mailto:kontakt@fiftyone49.de" class="nav-cta">Anfrage stellen</a>
+  <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Start</a>
+  <a href="index.html#services">Services</a>
+  <div class="submenu">
+    <a href="fotografie.html">Fotografie</a>
+    <a href="videografie.html">Videografie</a>
+    <a href="postproduktion.html">Postproduktion</a>
+    <a href="socialmedia.html">Social Media</a>
+  </div>
+  <a href="index.html#portfolio">Portfolio</a>
+  <a href="index.html#trust">Vertrauen</a>
+  <a href="index.html#about">About</a>
+  <a href="mailto:kontakt@fiftyone49.de" class="mobile-cta">Anfrage stellen</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/foto-sport-porsche-helm.jpg" alt="Porsche GT2 RS Cockpit"></div>
+  <div class="hero-content">
+    <div class="hero-breadcrumb"><a href="index.html">5149</a> / <a href="index.html#services">Services</a> / <span>Fotografie</span></div>
+    <h1 class="hero-title">Bilder<br><span class="dim">die hängen</span><br>bleiben.</h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>Sport</strong>Spielfeldrand · Stadion · Action</div>
+      <div class="hero-meta-item"><strong>People</strong>Portrait · Lifestyle · Editorial</div>
+      <div class="hero-meta-item"><strong>Corporate</strong>Marken · Produkte · Industrie</div>
+      <div class="hero-meta-item"><strong>Events</strong>Live · Backstage · Media</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="intro-inner reveal">
+    <div class="intro-eyebrow">Fotografie · 01</div>
+    <h2 class="intro-statement">Ein gutes Foto<br>erklärt sich nicht.<br><span class="dim">Es trifft.</span></h2>
+    <div class="intro-text">
+      <p class="intro-p">Neun Jahre hinter der Kamera haben mir eines beigebracht. Nicht das Equipment macht das Foto, sondern das Auge. Ich liefere Content der online sofort funktioniert, in einer Qualität die nicht diskutiert werden muss, zu Preisen die fair sind. Was du am Ende bekommst, ist mehr als auf der Rechnung steht.</p>
+      <p class="intro-p">Ich finde mich überwiegend im Sport und mit Menschen wieder. Aber durch Erfahrung bin ich vielseitig einsetzbar und denke mich schnell in neue Situationen rein. Bilder die nicht nur gut aussehen, sondern auch funktionieren. Für deine Kampagne, deinen Feed, deine Marke.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEREICHE -->
+<section class="bereiche-section">
+  <div class="bereiche-header reveal">
+    <div>
+      <div class="section-label">Bereiche</div>
+      <h2 class="section-title">Worauf ich<br>Bock habe.</h2>
+    </div>
+    <p class="bereiche-intro">Vier Welten. Eine Handschrift. Ich bewege mich zwischen Stadion, Studio und Hinterzimmer und finde überall den Punkt, an dem ein Bild zum Statement wird.</p>
+  </div>
+  <div class="bereiche-grid">
+    <a href="#gallery" class="bereich">
+      <img src="images/foto-sport-functional.jpg" alt="Sport Fotografie" style="object-position:center 35%;">
+      <div class="bereich-overlay"></div>
+      <div class="bereich-content">
+        <div class="bereich-num">01 / Sport</div>
+        <h3 class="bereich-title">Sport. Roh<br>und nah.</h3>
+        <p class="bereich-desc">Bundesliga, Motorsport, Functional Fitness. Egal welche Disziplin, ich kenne den Rhythmus und weiß wann der Moment kommt. Schnelle Reaktion, ruhige Hand, Bildsprache die sofort funktioniert.</p>
+        <div class="bereich-tags"><span class="bereich-tag">Bundesliga</span><span class="bereich-tag">Motorsport</span><span class="bereich-tag">Functional</span></div>
+      </div>
+    </a>
+    <a href="#gallery" class="bereich">
+      <img src="images/foto-people-luca-portrait.jpg" alt="People Fotografie Portrait" style="object-position:center 20%;">
+      <div class="bereich-overlay"></div>
+      <div class="bereich-content">
+        <div class="bereich-num">02 / People</div>
+        <h3 class="bereich-title">Echte Menschen.<br>Echte Bilder.</h3>
+        <p class="bereich-desc">Portraits, Lifestyle und Editorial. Ich arbeite mit Athleten, Persönlichkeiten und Creatorn die wissen wie sie wirken wollen. Diskretion ist Standard, Geschwindigkeit auch.</p>
+        <div class="bereich-tags"><span class="bereich-tag">Portrait</span><span class="bereich-tag">Lifestyle</span><span class="bereich-tag">Editorial</span><span class="bereich-tag">Travel</span></div>
+      </div>
+    </a>
+    <a href="#gallery" class="bereich">
+      <img src="images/foto-corporate-bepro-kreatin.jpg" alt="Corporate Fotografie Produkt" style="object-position:center 35%;">
+      <div class="bereich-overlay"></div>
+      <div class="bereich-content">
+        <div class="bereich-num">03 / Corporate</div>
+        <h3 class="bereich-title">Marken die<br>sich zeigen.</h3>
+        <p class="bereich-desc">Produktshootings, Industriereportagen, Markenkampagnen. Vom Volkswagen Werk bis zum Supplement Hersteller. Ich liefere Bilder die deine Marke ernst nehmen, ohne langweilig zu werden.</p>
+        <div class="bereich-tags"><span class="bereich-tag">Produkt</span><span class="bereich-tag">Industrie</span><span class="bereich-tag">Kampagne</span><span class="bereich-tag">Brand</span></div>
+      </div>
+    </a>
+    <a href="#gallery" class="bereich">
+      <img src="images/foto-event-ballerleague-couch.jpg" alt="Event Fotografie Live" style="object-position:center 50%;">
+      <div class="bereich-overlay"></div>
+      <div class="bereich-content">
+        <div class="bereich-num">04 / Events</div>
+        <h3 class="bereich-title">Wenn was<br>passiert.</h3>
+        <p class="bereich-desc">Baller League, World Fitness Project, Pressetermine. Ich begleite Events vor, hinter und neben der Kamera. Schnelle Auswahl, schneller Schnitt, schneller Output für deine Kanäle.</p>
+        <div class="bereich-tags"><span class="bereich-tag">Live</span><span class="bereich-tag">Backstage</span><span class="bereich-tag">Media</span><span class="bereich-tag">Same Day</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header reveal">
+    <div>
+      <div class="section-label">Auswahl</div>
+      <h2 class="section-title">Arbeiten</h2>
+    </div>
+    <div class="gallery-meta">Ein Auszug, kein Best Of</div>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="g-item"><img loading="lazy" src="images/foto-sport-bmg-leverkusen.jpg" alt="BMG vs Bayer Leverkusen"><div class="g-overlay"><div class="g-tag">Sport · Bundesliga</div><div class="g-title">BMG vs Bayer 04</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-people-eistonne.jpg" alt="Eistonne Recovery"><div class="g-overlay"><div class="g-tag">Lifestyle · Recovery</div><div class="g-title">Arctic Recovery</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-people-kerber-stretching.jpg" alt="Kerber Training"><div class="g-overlay"><div class="g-tag">Corporate · NutriLuv</div><div class="g-title">NutriLuv Shooting</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-corporate-bepro-kreatin.jpg" alt="BePro Kreatin"><div class="g-overlay"><div class="g-tag">Corporate · BePro</div><div class="g-title">Kreatin Drop</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-people-vivi.jpg" alt="Vivi Workout"><div class="g-overlay"><div class="g-tag">People · Influencer</div><div class="g-title">Social Media Content</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-sport-bmg-choreo.jpg" alt="BMG Choreo Borussia Park"><div class="g-overlay"><div class="g-tag">Sport · Stadion</div><div class="g-title">Borussia Park</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-event-worldfitness.jpg" alt="World Fitness Project"><div class="g-overlay"><div class="g-tag">Event · Fitness</div><div class="g-title">World Fitness Project</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-sport-keeper.jpg" alt="Torwart Training"><div class="g-overlay"><div class="g-tag">Sport · Analog</div><div class="g-title">Keeper · Flutlicht</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-people-luca-portrait.jpg" alt="Luca Portrait"><div class="g-overlay"><div class="g-tag">People · Portrait</div><div class="g-title">Luca · Golden Hour</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-event-ballerleague-kommentator.jpg" alt="Baller League Couch"><div class="g-overlay"><div class="g-tag">Event · Baller League</div><div class="g-title">Baller League Begleitung</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-corporate-nutritionx.jpg" alt="NutritionX Stadium"><div class="g-overlay"><div class="g-tag">Corporate · NutritionX</div><div class="g-title">Product Shooting</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-event-dfb-schweinsteiger.jpg" alt="DFB Pokal Schweinsteiger"><div class="g-overlay"><div class="g-tag">Event · ARD</div><div class="g-title">DFB Pokal</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-people-anna-aorta.jpg" alt="Anna Aorta Workout"><div class="g-overlay"><div class="g-tag">People · Influencer</div><div class="g-title">Social Media Content</div></div></div>
+    <div class="g-item"><img loading="lazy" src="images/foto-people-bergtour-buggy.jpg" alt="Buggy Bergtour Spanien"><div class="g-overlay"><div class="g-tag">Travel · Off Road</div><div class="g-title">Marbella Buggy</div></div></div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-bg"><img src="images/foto-event-ballerleague-kommentator.jpg" alt=""></div>
+  <div class="quote-inner reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">Ein Foto ist eine Entscheidung.<br>Ich treffe sie in einem<br>Hundertstel einer Sekunde.</p>
+    <div class="quote-author">Maximilian Kelm · Fotograf</div>
+  </div>
+</section>
+
+<!-- PROZESS -->
+<section class="prozess-section">
+  <div class="prozess-inner">
+    <div class="prozess-header reveal">
+      <div class="section-label">Ablauf</div>
+      <h2 class="section-title">Wie ich<br>arbeite.</h2>
+    </div>
+    <div class="prozess-grid reveal">
+      <div class="prozess-step">
+        <div class="prozess-num">01</div>
+        <h3 class="prozess-step-title">Briefing</h3>
+        <p class="prozess-step-desc">Kurz und ehrlich. Ich frage nicht nach hundert Moodboards. Ich will wissen wer du bist, was du brauchst und wann es fertig sein muss.</p>
+      </div>
+      <div class="prozess-step">
+        <div class="prozess-num">02</div>
+        <h3 class="prozess-step-title">Shooting</h3>
+        <p class="prozess-step-desc">Ich komme allein. Kein aufgeblähtes Team, kein Tross, keine Diskussionen am Set. Nur ich, meine Ausrüstung und der Plan. Effizient, sauber, fokussiert.</p>
+      </div>
+      <div class="prozess-step">
+        <div class="prozess-num">03</div>
+        <h3 class="prozess-step-title">Output</h3>
+        <p class="prozess-step-desc">Ich liefere mehr als bestellt. Wenn am Set zehn gute Bilder entstehen, kriegst du zehn. Nicht drei. Du sollst das Material bekommen, mit dem du wirklich arbeiten kannst, nicht nur das Pflichtprogramm.</p>
+      </div>
+      <div class="prozess-step">
+        <div class="prozess-num">04</div>
+        <h3 class="prozess-step-title">Lieferung</h3>
+        <p class="prozess-step-desc">Editiert, koloriert, exportiert. In den Formaten die du brauchst. Web, Social, Print. Bei dringenden Jobs auch Same Day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">Bereit?</div>
+    <h2 class="cta-big">Dein Projekt.<br><span class="dim">Mein Auge.</span></h2>
+    <div class="cta-buttons">
+      <a href="mailto:kontakt@fiftyone49.de" class="btn-primary">Anfrage stellen</a>
+      <a href="index.html#services" class="btn-ghost">Andere Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 5149 · Maximilian Kelm</span>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/fiftyone_49/" target="_blank">Instagram</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+var nav = document.getElementById('nav');
+var burger = document.getElementById('burger');
+var mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', function() {
+  if(window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+burger.addEventListener('click', function() {
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+if('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(r) { obs.observe(r); });
+}
+</script>
+</body>
+</html>
