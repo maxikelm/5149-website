@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videografie – 5149 · Maximilian Kelm</title>
+<meta name="description" content="Videografie für Eventbegleitung, Kampagnen und Short-Form Content. Schnell, authentisch, vor Ort. Maximilian Kelm aus Braunschweig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+:root{--black:#060606;--white:#eeebe4;--gray:#0e0e0e;--border:rgba(255,255,255,0.07);--muted:rgba(238,235,228,0.35)}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 3.5rem;transition:padding 0.4s,background 0.4s,border-color 0.4s;border-bottom:1px solid transparent;background:rgba(6,6,6,0.6);backdrop-filter:blur(10px)}
+nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:28px}
+.nav-links{display:flex;gap:2.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.25s}
+.nav-links a:hover{color:var(--white)}
+.has-dropdown{position:relative}
+.has-dropdown>a{display:inline-flex;align-items:center;gap:0.4rem}
+.has-dropdown>a::after{content:'';width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform 0.3s}
+.has-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
+.dropdown{position:absolute;top:100%;left:-1.2rem;margin-top:1.4rem;min-width:220px;background:rgba(6,6,6,0.96);backdrop-filter:blur(20px);border:1px solid var(--border);padding:0.6rem 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown::before{content:'';position:absolute;top:-1.4rem;left:0;right:0;height:1.4rem}
+.dropdown a{display:block;padding:0.7rem 1.4rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);transition:color 0.2s,background 0.2s}
+.dropdown a:hover{color:var(--white);background:rgba(255,255,255,0.04)}
+.nav-cta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;color:var(--black);background:var(--white);padding:0.6rem 1.6rem;text-decoration:none}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 3.5rem 5rem;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(238,235,228,0.06) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(ellipse 70% 60% at 80% 50%,black 0%,transparent 75%)}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1500px;margin:0 auto}
+.hero-breadcrumb{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;display:flex;align-items:center;gap:0.8rem}
+.hero-breadcrumb a{color:var(--muted);transition:color 0.25s}
+.hero-breadcrumb a:hover{color:var(--white)}
+.hero-breadcrumb span{color:var(--white)}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,12vw,12rem);line-height:0.85;margin-bottom:3rem}
+.hero-title .dim{color:rgba(238,235,228,0.2)}
+.hero-desc{font-size:1.05rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.7;max-width:560px}
+
+/* INTRO STATEMENT */
+.intro-section{padding:10rem 3.5rem;background:var(--gray)}
+.intro-inner{max-width:1100px;margin:0 auto}
+.intro-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.intro-eyebrow::before{content:'';width:30px;height:1px;background:var(--muted)}
+.intro-statement{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin-bottom:3rem}
+.intro-statement .dim{color:rgba(238,235,228,0.2)}
+.intro-text{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.intro-p{font-size:1rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.9}
+
+/* THREE PILLARS */
+.pillars-section{padding:8rem 3.5rem;background:var(--black)}
+.pillars-header{max-width:1300px;margin:0 auto 4rem}
+.section-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;display:flex;align-items:center;gap:1rem}
+.section-label::before{content:'';width:30px;height:1px;background:var(--muted)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:0.9}
+.section-title .dim{color:rgba(238,235,228,0.2)}
+.pillars-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.pillar{background:var(--gray);padding:3rem 2.2rem;display:flex;flex-direction:column;transition:background 0.4s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;top:0;left:0;height:2px;width:60px;background:var(--white);transition:width 0.5s ease}
+.pillar:hover::before{width:100%}
+.pillar:hover{background:#141414}
+.pillar-watermark{position:absolute;top:1.2rem;right:1.5rem;font-family:'Bebas Neue',sans-serif;font-size:clamp(6rem,10vw,9rem);line-height:0.85;color:rgba(238,235,228,0.045);user-select:none;pointer-events:none;letter-spacing:-0.05em;transition:color 0.4s}
+.pillar:hover .pillar-watermark{color:rgba(238,235,228,0.08)}
+.pillar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem;position:relative;z-index:1}
+.pillar-num{font-family:'Bebas Neue',sans-serif;font-size:0.78rem;letter-spacing:0.2em;color:var(--muted)}
+.pillar-icon{width:36px;height:36px;color:var(--white);opacity:0.85;transition:transform 0.6s ease,opacity 0.3s}
+.pillar:hover .pillar-icon{transform:rotate(15deg);opacity:1}
+.pillar-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,2.8vw,2.6rem);line-height:0.95;margin-bottom:1.3rem;position:relative;z-index:1}
+.pillar-title .dim{color:rgba(238,235,228,0.25)}
+.pillar-desc{font-size:0.92rem;font-weight:300;color:rgba(238,235,228,0.7);line-height:1.8;margin-bottom:1.5rem;position:relative;z-index:1}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--border);position:relative;z-index:1}
+.pillar-tag{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:0.35rem 0.8rem;background:var(--gray)}
+
+/* SHOWCASES */
+.showcase-section{padding:8rem 3.5rem;background:var(--gray)}
+.showcase-inner{max-width:1400px;margin:0 auto}
+.showcase-header{margin-bottom:3rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem}
+.showcase-meta{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+
+/* Long-form / Quer */
+.video-grid-quer{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.video-quer{position:relative;aspect-ratio:16/9;background:var(--black);overflow:hidden;border:1px solid var(--border)}
+.video-quer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+
+.showcase-section.dark{background:var(--black)}
+
+/* Hochkant */
+.video-grid-hoch{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.video-hoch{position:relative;aspect-ratio:9/16;background:var(--black);overflow:hidden;border:1px solid var(--border)}
+.video-hoch iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+
+/* Notice block */
+.notice-section{padding:6rem 3.5rem;background:var(--gray);border-top:1px solid var(--border)}
+.notice-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center}
+.notice-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:1rem}
+.notice-label::before{content:'';width:30px;height:1px;background:var(--muted)}
+.notice-text{font-size:1rem;font-weight:300;color:rgba(238,235,228,0.75);line-height:1.8}
+.notice-link{display:inline-flex;align-items:center;gap:0.6rem;color:var(--white);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--white);padding-bottom:0.3rem;margin-top:1.2rem;transition:opacity 0.25s}
+.notice-link:hover{opacity:0.7}
+.notice-link::after{content:'↗';font-size:0.9rem}
+
+/* CTA */
+.cta-section{padding:10rem 3.5rem;background:var(--black)}
+.cta-inner{max-width:1000px;margin:0 auto;text-align:center}
+.cta-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.cta-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7.5rem);line-height:0.9;margin-bottom:3rem}
+.cta-big .dim{color:rgba(238,235,228,0.18)}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--white);color:var(--black);padding:1.2rem 3rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:opacity 0.3s}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{border:1px solid var(--border);color:var(--white);padding:1.2rem 3rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:background 0.3s,color 0.3s}
+.btn-ghost:hover{background:var(--white);color:var(--black)}
+
+footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;background:var(--black)}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+.footer-links{display:flex;gap:2.5rem}
+.footer-links a{font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.25s}
+.footer-links a:hover{color:var(--white)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Burger Menu */
+.burger{display:none;flex-direction:column;justify-content:center;width:28px;height:28px;gap:6px;cursor:pointer;background:transparent;border:none;padding:0;z-index:600}
+.burger span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform 0.35s ease,opacity 0.25s ease}
+.burger.open span:nth-child(1){transform:translateY(3.75px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-3.75px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:550;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);text-decoration:none;letter-spacing:0.05em;line-height:1;transition:opacity 0.25s}
+.mobile-menu a:hover{opacity:0.5}
+.mobile-menu .submenu{display:flex;flex-direction:column;gap:1.2rem;margin-top:-1rem}
+.mobile-menu .submenu a{font-size:1.4rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;text-align:center}
+.mobile-menu .submenu a:hover{color:var(--white);opacity:1}
+.mobile-menu .mobile-cta{margin-top:1.5rem;background:var(--white);color:var(--black);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+
+@media(max-width:960px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .hero{padding:7rem 1.5rem 4rem}
+  .intro-section{padding:5rem 1.5rem}
+  .intro-text{grid-template-columns:1fr;gap:2rem}
+  .pillars-section{padding:5rem 1.5rem}
+  .pillars-grid{grid-template-columns:1fr}
+  .pillar{padding:2.2rem 1.6rem}
+  .showcase-section{padding:5rem 1.5rem}
+  .video-grid-quer{grid-template-columns:1fr;gap:1rem}
+  .video-grid-hoch{grid-template-columns:1fr 1fr;gap:0.8rem}
+  .notice-section{padding:4rem 1.5rem}
+  .notice-inner{grid-template-columns:1fr;gap:1.5rem}
+  .cta-section{padding:5rem 1.5rem}
+  .cta-buttons{flex-direction:column}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
+  .footer-links{gap:1.5rem}
+}
+@media(max-width:480px){
+  .video-grid-hoch{grid-template-columns:1fr;max-width:300px;margin:0 auto;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img loading="lazy" src="images/logo.png" alt="5149"></a>
+  <ul class="nav-links">
+    <li class="has-dropdown">
+      <a href="index.html#services">Services</a>
+      <div class="dropdown">
+        <a href="fotografie.html">Fotografie</a>
+        <a href="videografie.html">Videografie</a>
+        <a href="postproduktion.html">Postproduktion</a>
+        <a href="socialmedia.html">Social Media</a>
+      </div>
+    </li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#trust">Vertrauen</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Kontakt</a></li>
+  </ul>
+  <a href="mailto:kontakt@fiftyone49.de" class="nav-cta">Anfrage stellen</a>
+  <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Start</a>
+  <a href="index.html#services">Services</a>
+  <div class="submenu">
+    <a href="fotografie.html">Fotografie</a>
+    <a href="videografie.html">Videografie</a>
+    <a href="postproduktion.html">Postproduktion</a>
+    <a href="socialmedia.html">Social Media</a>
+  </div>
+  <a href="index.html#portfolio">Portfolio</a>
+  <a href="index.html#trust">Vertrauen</a>
+  <a href="index.html#about">About</a>
+  <a href="mailto:kontakt@fiftyone49.de" class="mobile-cta">Anfrage stellen</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-content">
+    <div class="hero-breadcrumb"><a href="index.html">5149</a> / <a href="index.html#services">Services</a> / <span>Videografie</span></div>
+    <h1 class="hero-title">Solo.<br>Schnell.<br><span class="dim">Sauber.</span></h1>
+    <p class="hero-desc">Eventbegleitung, Kampagnen, Short-Form Content. Vor Ort, mit Auge und Ohr für den Moment. Schnell genug für die nächste Story, sauber genug für die große Bühne.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="intro-inner reveal">
+    <div class="intro-eyebrow">Videografie · 02</div>
+    <h2 class="intro-statement">Drehen ist mehr<br>als drauf-<br><span class="dim">halten.</span></h2>
+    <div class="intro-text">
+      <p class="intro-p">Die Welt der sozialen Medien dreht sich schnell. Reel heute, Story morgen, übermorgen ist alles wieder veraltet. Output ist wichtiger geworden als die perfekte Inszenierung. Wer hier mithalten will, braucht jemanden der schnell denkt, schnell dreht und schnell liefert.</p>
+      <p class="intro-p">Klassische Corporate Produktionen mit Briefing, Storyboard und Drehtag gibt es nach wie vor. Nur seltener geworden. Beides liegt bei mir auf dem Tisch. Ob Tempo oder Tiefe, ich passe mich an.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PILLARS -->
+<section class="pillars-section">
+  <div class="pillars-header reveal">
+    <div class="section-label">Was ich filme</div>
+    <h2 class="section-title">Drei Welten.<br><span class="dim">Eine Kamera.</span></h2>
+  </div>
+  <div class="pillars-grid reveal">
+    <!-- EVENTS -->
+    <div class="pillar">
+      <div class="pillar-watermark">01</div>
+      <div class="pillar-head">
+        <div class="pillar-num">01 / Events</div>
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="12" width="22" height="16" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <polygon points="26,17 36,12 36,28 26,23" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+          <circle cx="32" cy="9" r="2.5" fill="#ff3b30"/>
+        </svg>
+      </div>
+      <h3 class="pillar-title">Eventbe-<br><span class="dim">gleitung.</span></h3>
+      <p class="pillar-desc">Live vor Ort. Athleten, Veranstaltungen, Pressetermine. Ich begleite den Tag mit der Kamera, fange die wichtigen Momente ein und liefere dir das Material zeitnah zurück. Same Day möglich.</p>
+      <div class="pillar-tags"><span class="pillar-tag">Live</span><span class="pillar-tag">Backstage</span><span class="pillar-tag">Same Day</span></div>
+    </div>
+    <!-- KAMPAGNEN -->
+    <div class="pillar">
+      <div class="pillar-watermark">02</div>
+      <div class="pillar-head">
+        <div class="pillar-num">02 / Kampagnen</div>
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="14" width="32" height="20" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M6 14 L10 8 L18 8 L14 14" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+          <path d="M16 14 L20 8 L28 8 L24 14" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+          <path d="M26 14 L30 8 L36 8 L34 14" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="pillar-title">Kampagnen<br><span class="dim">und Brand.</span></h3>
+      <p class="pillar-desc">Geplante Produktionen mit Konzept und Anspruch. Vom Imagefilm bis zum Werbespot. Wenn das Ergebnis nicht zufällig sein darf, sondern jede Einstellung sitzen muss.</p>
+      <div class="pillar-tags"><span class="pillar-tag">Imagefilm</span><span class="pillar-tag">Spot</span><span class="pillar-tag">Brand</span></div>
+    </div>
+    <!-- SHORT-FORM -->
+    <div class="pillar">
+      <div class="pillar-watermark">03</div>
+      <div class="pillar-head">
+        <div class="pillar-num">03 / Short-Form</div>
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="13" y="4" width="14" height="32" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="13" y1="10" x2="27" y2="10" stroke="currentColor" stroke-width="1"/>
+          <line x1="13" y1="30" x2="27" y2="30" stroke="currentColor" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3 class="pillar-title">Reels &amp;<br><span class="dim">Shorts.</span></h3>
+      <p class="pillar-desc">Vertikales Material das in den ersten zwei Sekunden hooked. Für Instagram, TikTok und YouTube Shorts. Vom Dreh bis zum fertigen Reel aus einer Hand.</p>
+      <div class="pillar-tags"><span class="pillar-tag">Reels</span><span class="pillar-tag">TikTok</span><span class="pillar-tag">Shorts</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE QUER -->
+<section class="showcase-section">
+  <div class="showcase-inner reveal">
+    <div class="showcase-header">
+      <div>
+        <div class="section-label">Auswahl Long-Form</div>
+        <h2 class="section-title">Quer gedacht.</h2>
+      </div>
+      <div class="showcase-meta">3 ausgewählte Cuts</div>
+    </div>
+    <div class="video-grid-quer">
+      <div class="video-quer">
+        <iframe src="https://www.youtube.com/embed/lu3FVFNvO3s?rel=0&modestbranding=1" title="Videografie Showcase 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-quer">
+        <iframe src="https://www.youtube.com/embed/94azty7Z0uw?rel=0&modestbranding=1" title="Videografie Showcase 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-quer">
+        <iframe src="https://www.youtube.com/embed/zSgFyfOjxm4?rel=0&modestbranding=1" title="Videografie Showcase 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE HOCHKANT -->
+<section class="showcase-section dark">
+  <div class="showcase-inner reveal">
+    <div class="showcase-header">
+      <div>
+        <div class="section-label">Auswahl Short-Form</div>
+        <h2 class="section-title">Hochkant.</h2>
+      </div>
+      <div class="showcase-meta">3 Reels</div>
+    </div>
+    <div class="video-grid-hoch">
+      <div class="video-hoch">
+        <iframe src="https://www.youtube.com/embed/knlBlGAg2Dw?rel=0&modestbranding=1" title="Reel 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-hoch">
+        <iframe src="https://www.youtube.com/embed/7zVsXev8Ru0?rel=0&modestbranding=1" title="Reel 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-hoch">
+        <iframe src="https://www.youtube.com/embed/htog8OKU0nI?rel=0&modestbranding=1" title="Reel 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE -->
+<section class="notice-section">
+  <div class="notice-inner reveal">
+    <div class="notice-label">Hinweis</div>
+    <div>
+      <p class="notice-text">Viele meiner Arbeiten unterliegen NDAs oder sind nicht für die Öffentlichkeit bestimmt. Was du hier siehst, ist nur ein kleiner Auszug. Die laufenden Projekte und neuesten Cuts findest du regelmäßig auf meinem Instagram.</p>
+      <a href="https://www.instagram.com/fiftyone_49/" target="_blank" class="notice-link">@fiftyone_49 auf Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">Bereit?</div>
+    <h2 class="cta-big">Kamera ab.<br><span class="dim">Lass uns drehen.</span></h2>
+    <div class="cta-buttons">
+      <a href="mailto:kontakt@fiftyone49.de" class="btn-primary">Anfrage stellen</a>
+      <a href="index.html#services" class="btn-ghost">Andere Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 5149 · Maximilian Kelm</span>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/fiftyone_49/" target="_blank">Instagram</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+var nav = document.getElementById('nav');
+var burger = document.getElementById('burger');
+var mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', function() {
+  if(window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+burger.addEventListener('click', function() {
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+if('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(r) { obs.observe(r); });
+}
+</script>
+</body>
+</html>
