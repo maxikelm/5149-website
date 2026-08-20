@@ -30,21 +30,20 @@ nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:b
 .hero{position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 10%;filter:contrast(1.08) brightness(0.88) saturate(1.05)}
-.hero-bg::after{content:'';position:absolute;inset:0;opacity:0.06;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,6,0.7) 0%,rgba(6,6,6,0) 24%,rgba(6,6,6,0) 52%,rgba(6,6,6,0.5) 78%,rgba(6,6,6,0.96) 100%)}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,6,0.6) 0%,rgba(6,6,6,0) 22%)}
 .hero-rec{position:absolute;top:6.8rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:0.6rem;font-size:0.68rem;letter-spacing:0.14em;color:var(--muted)}
 .rec-dot{width:6px;height:6px;border-radius:50%;background:#d64545;animation:recPulse 1.6s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.rec-dot{animation:none}}
 @keyframes recPulse{0%,100%{opacity:1}50%{opacity:0.25}}
-.hero-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3.5rem 4rem}
-.hero-bottom-row{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem}
+.hero-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bottom-row{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;background:rgba(6,6,6,0.86);border-top:1px solid rgba(238,235,228,0.1);padding:2.6rem 3.5rem}
 .hero-main{max-width:72%}
-.hero-eyebrow{font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem;display:flex;align-items:center;gap:0.9rem}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem;display:flex;align-items:center;gap:0.9rem;text-shadow:0 2px 10px rgba(0,0,0,0.4)}
 .hero-eyebrow::before{content:'';width:26px;height:1px;background:var(--muted)}
-.hero-title{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(4.4rem,8.6vw,8.2rem);line-height:0.88}
+.hero-title{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(4.4rem,8.6vw,8.2rem);line-height:0.88;text-shadow:0 4px 28px rgba(0,0,0,0.45)}
 .hero-title .dim{color:rgba(238,235,228,0.2)}
 .hero-side{max-width:260px;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2.2rem}
-.hero-desc{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.7}
+.hero-desc{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.7;text-shadow:0 2px 12px rgba(0,0,0,0.5)}
 .hero-scroll{display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase}
 .scroll-line{width:1px;height:50px;background:var(--border);overflow:hidden;position:relative}
 .scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--white);animation:scrollLine 1.8s ease-in-out infinite}
@@ -97,7 +96,6 @@ section{padding:8rem 3.5rem}
 .p-item.e{grid-column:9/13;grid-row:2;height:480px}
 .p-item.f{grid-column:1/7;grid-row:3;height:380px}
 .p-item.g{grid-column:7/13;grid-row:3;height:380px}
-.p-item.h{grid-column:1/13;grid-row:4;height:560px}
 
 .trust-section{background:var(--black);padding:8rem 3.5rem}
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-bottom:4rem}
@@ -156,8 +154,8 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
   .nav-cta{display:none}
   .burger{display:flex}
   .hero{height:100vh}
-  .hero-content{padding:0 1.5rem 3rem}
-  .hero-bottom-row{flex-direction:column;align-items:flex-start;gap:1.6rem}
+  .hero-content{padding:0}
+  .hero-bottom-row{flex-direction:column;align-items:flex-start;gap:1.4rem;padding:1.8rem 1.5rem}
   .hero-main{max-width:100%}
   .hero-side{max-width:100%;align-items:flex-start;text-align:left}
   .hero-rec{top:5.6rem;font-size:0.6rem}
@@ -167,7 +165,7 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
   .service-row{grid-template-columns:40px 1fr auto;column-gap:1rem;padding:1.5rem 0}
   .portfolio-header{flex-direction:column;gap:1rem}
   .portfolio-grid{grid-template-columns:1fr 1fr;gap:3px}
-  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g,.p-item.h{grid-column:auto;grid-row:auto;height:200px}
+  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g{grid-column:auto;grid-row:auto;height:200px}
   .p-overlay{opacity:1}
   .trust-grid{grid-template-columns:1fr;gap:2rem}
   .trust-section{padding:3.5rem 1.5rem}
@@ -184,7 +182,7 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
 }
 @media(max-width:480px){
   .portfolio-grid{grid-template-columns:1fr;gap:3px}
-  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g,.p-item.h{height:260px}
+  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g{height:260px}
   .about-stats{grid-template-columns:1fr 1fr 1fr}
   .stat-num{font-size:1.6rem}
   .trust-imgs{grid-template-columns:1fr}
@@ -308,7 +306,6 @@ footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justi
     <div class="p-item e"><img loading="lazy" src="images/auftrag-sport.jpg" alt="Sport" style="object-position:center 15%;"><div class="p-overlay"><div class="p-tag">Sport · Fitness</div><div class="p-title">Athlete Content</div></div></div>
     <div class="p-item f"><img loading="lazy" src="images/auftrag-pudeldame.jpg" alt="Pudeldame" style="object-position:center 25%;"><div class="p-overlay"><div class="p-tag">Music · Live</div><div class="p-title">Pudeldame</div></div></div>
     <div class="p-item g"><img loading="lazy" src="images/auftrag-bmg.jpg" alt="BMG" style="object-position:center 60%;"><div class="p-overlay"><div class="p-tag">Sport · Bundesliga</div><div class="p-title">BMG vs Köln</div></div></div>
-    <div class="p-item h"><img loading="lazy" src="images/trust-vw-event.jpg" alt="Volkswagen CEO" style="object-position:center 15%;"><div class="p-overlay"><div class="p-tag">Corporate · Volkswagen</div><div class="p-title">VW CEO</div></div></div>
   </div>
 </section>
 
