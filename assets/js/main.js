@@ -134,10 +134,17 @@
       field.addEventListener('input', function(){ field.setCustomValidity(''); });
     });
 
+    var fehler = document.getElementById('anfrage-fehler');
+
     var showSuccess = function(){
       form.hidden = true;
       success.hidden = false;
       success.focus();
+    };
+
+    var showError = function(){
+      fehler.hidden = false;
+      fehler.focus();
     };
 
     /* Rückkehr nach dem Absenden ohne JS (action="/?anfrage=gesendet#kontakt") */
@@ -156,8 +163,10 @@
         if (!response.ok) throw new Error(String(response.status));
         showSuccess();
       }).catch(function(){
-        /* Fallback: klassisch absenden, Netlify leitet auf die action-URL */
-        form.submit();
+        /* Kein stiller Fallback: der klassische POST landet bei einem Fehler
+           auf einer leeren Fehlerseite. Stattdessen Hinweis mit Mailadresse. */
+        button.disabled = false;
+        showError();
       });
     });
   }
