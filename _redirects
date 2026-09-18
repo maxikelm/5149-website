@@ -1,0 +1,11 @@
+# Alte Service-Seiten → Anker auf leistungen.html
+/fotografie.html      /leistungen.html#fotografie      301
+/videografie.html     /leistungen.html#videografie     301
+/postproduktion.html  /leistungen.html#postproduktion  301
+/socialmedia.html     /leistungen.html#socialmedia     301
+
+# Dieselben Adressen ohne .html (Netlify liefert sie sonst auch aus)
+/fotografie           /leistungen.html#fotografie      301
+/videografie          /leistungen.html#videografie     301
+/postproduktion       /leistungen.html#postproduktion  301
+/socialmedia          /leistungen.html#socialmedia     301

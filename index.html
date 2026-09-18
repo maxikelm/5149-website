@@ -1,401 +1,314 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>5149 – Maximilian Kelm</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--black:#060606;--white:#eeebe4;--gray:#0e0e0e;--border:rgba(255,255,255,0.07);--muted:rgba(238,235,228,0.35)}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--white);font-family:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 3.5rem;transition:padding 0.4s,background 0.4s,border-color 0.4s;border-bottom:1px solid transparent}
-nav.scrolled{padding:1.1rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo img{height:28px}
-.nav-links{display:flex;gap:2.8rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.25s}
-.nav-links a:hover{color:var(--white)}
-.has-dropdown{position:relative}
-.has-dropdown>a{display:inline-flex;align-items:center;gap:0.4rem}
-.has-dropdown>a::after{content:'';width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform 0.3s}
-.has-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
-.dropdown{position:absolute;top:100%;left:-1.2rem;margin-top:1.4rem;min-width:220px;background:rgba(6,6,6,0.96);backdrop-filter:blur(20px);border:1px solid var(--border);padding:0.6rem 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s}
-.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown::before{content:'';position:absolute;top:-1.4rem;left:0;right:0;height:1.4rem}
-.dropdown a{display:block;padding:0.7rem 1.4rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);transition:color 0.2s,background 0.2s}
-.dropdown a:hover{color:var(--white);background:rgba(255,255,255,0.04)}
-.nav-cta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;color:var(--black);background:var(--white);padding:0.6rem 1.6rem;text-decoration:none}
-
-.hero{position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 10%;filter:contrast(1.08) brightness(0.88) saturate(1.05)}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,6,0.6) 0%,rgba(6,6,6,0) 20%,rgba(6,6,6,0) 36%,rgba(6,6,6,0.7) 60%,rgba(6,6,6,0.95) 82%,rgba(6,6,6,0.98) 100%)}
-.hero-rec{position:absolute;top:6.8rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:0.6rem;font-size:0.68rem;letter-spacing:0.14em;color:var(--muted)}
-.rec-dot{width:6px;height:6px;border-radius:50%;background:#d64545;animation:recPulse 1.6s ease-in-out infinite}
-@media(prefers-reduced-motion:reduce){.rec-dot{animation:none}}
-@keyframes recPulse{0%,100%{opacity:1}50%{opacity:0.25}}
-.hero-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3.5rem 4rem}
-.hero-bottom-row{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem}
-.hero-main{max-width:72%}
-.hero-eyebrow{font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem;display:flex;align-items:center;gap:0.9rem}
-.hero-eyebrow::before{content:'';width:26px;height:1px;background:var(--muted)}
-.hero-title{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(4.4rem,8.6vw,8.2rem);line-height:0.88}
-.hero-title .dim{color:rgba(238,235,228,0.2)}
-.hero-side{max-width:260px;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2.2rem}
-.hero-desc{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.7}
-.hero-scroll{display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase}
-.scroll-line{width:1px;height:50px;background:var(--border);overflow:hidden;position:relative}
-.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--white);animation:scrollLine 1.8s ease-in-out infinite}
-@keyframes scrollLine{0%{top:-100%}100%{top:100%}}
-@media(prefers-reduced-motion:reduce){.scroll-line::after{animation:none;top:0}}
-
-.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.4rem 0;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent);mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent)}
-.marquee-track{display:inline-flex;white-space:nowrap;animation:marquee 70s linear infinite;min-width:max-content}
-.marquee-wrap:hover .marquee-track{animation-play-state:paused}
-.marquee-item{display:inline-flex;align-items:center;gap:2.6rem;padding:0 2.6rem;flex-shrink:0}
-.marquee-item span{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:1.05rem;letter-spacing:0.16em;color:rgba(238,235,228,0.28);transition:color 0.4s ease}
-.marquee-item span:hover{color:var(--white)}
-.marquee-dot{width:3px;height:3px;border-radius:50%;background:rgba(238,235,228,0.12)}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-section{padding:8rem 3.5rem}
-.reveal{opacity:0;transition:opacity 0.9s ease}
-.reveal.visible{opacity:1}
-.section-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;display:flex;align-items:center;gap:1rem}
-.section-label::before{content:'';width:30px;height:1px;background:var(--muted)}
-.section-title{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:0.9;margin-bottom:3rem}
-
-.services-section{background:var(--gray)}
-.services-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
-.services-intro{font-size:0.95rem;font-weight:300;color:var(--muted);line-height:1.8}
-.services-list{border-top:1px solid var(--border)}
-.service-row{position:relative;display:grid;grid-template-columns:80px 1fr auto;align-items:center;column-gap:1.8rem;padding:2.1rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--white)}
-.row-index{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:1.7rem;letter-spacing:0.04em;color:rgba(238,235,228,0.28);transition:color 0.4s ease}
-.service-row:hover .row-index{color:var(--white)}
-.row-body{display:flex;flex-direction:column;gap:0.6rem;min-width:0}
-.row-name{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:1;transition:transform 0.4s ease}
-.service-row:hover .row-name{transform:translateX(10px)}
-.row-desc{font-size:0.85rem;color:var(--muted);font-weight:300;line-height:1.7;max-width:480px}
-.row-arrow{font-size:1.3rem;color:var(--white);opacity:0.4;transition:transform 0.3s ease,opacity 0.3s ease}
-.service-row:hover .row-arrow{opacity:1;transform:translateX(6px)}
-
-.portfolio-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
-.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
-.p-item{position:relative;overflow:hidden}
-.p-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease}
-.p-item:hover img{transform:scale(1.04)}
-.p-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,0.85) 0%,transparent 55%);opacity:0;transition:opacity 0.4s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem}
-.p-item:hover .p-overlay{opacity:1}
-.p-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.4rem}
-.p-title{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:1.6rem}
-.p-item.a{grid-column:1/8;grid-row:1;height:480px}
-.p-item.b{grid-column:8/13;grid-row:1;height:480px}
-.p-item.c{grid-column:1/5;grid-row:2;height:480px}
-.p-item.d{grid-column:5/9;grid-row:2;height:480px}
-.p-item.e{grid-column:9/13;grid-row:2;height:480px}
-.p-item.f{grid-column:1/7;grid-row:3;height:380px}
-.p-item.g{grid-column:7/13;grid-row:3;height:380px}
-
-
-.about-section{background:var(--gray)}
-.about-inner{display:grid;grid-template-columns:5fr 7fr;gap:8rem;align-items:start}
-.about-img-wrap{position:sticky;top:120px}
-.about-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 35%;display:block}
-.about-caption{display:flex;justify-content:space-between;margin-top:1rem;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
-.about-lead{font-size:1.2rem;font-weight:300;color:var(--white);line-height:1.7;margin-bottom:2rem;border-left:1px solid var(--border);padding-left:1.5rem}
-.about-text{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
-.about-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);margin:3rem 0}
-.stat{padding:2rem 1.5rem;border-right:1px solid var(--border)}
-.stat:last-child{border-right:none}
-.stat-num{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:3rem;line-height:1;margin-bottom:0.4rem}
-.stat-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted)}
-.btn-white{background:var(--white);color:var(--black);padding:1.2rem 3rem;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block}
-
-.contact-inner{max-width:900px;margin:0 auto;text-align:center}
-.contact-big{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(4rem,10vw,9rem);line-height:0.85;margin-bottom:2.5rem}
-.contact-dim{color:rgba(238,235,228,0.15)}
-.contact-link{display:inline-block;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:1.2rem 3rem;margin-top:1rem;transition:all 0.3s;position:relative;overflow:hidden}
-.contact-link::before{content:'';position:absolute;inset:0;background:var(--white);transform:translateY(101%);transition:transform 0.4s}
-.contact-link:hover{color:var(--black)}
-.contact-link:hover::before{transform:translateY(0)}
-.contact-link span{position:relative;z-index:1}
-
-footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center}
-.footer-copy{font-size:0.7rem;color:var(--muted)}
-.footer-links{display:flex;gap:2.5rem}
-.footer-links a{font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.25s}
-.footer-links a:hover{color:var(--white)}
-
-/* Burger Menu */
-.burger{display:none;flex-direction:column;justify-content:center;width:28px;height:28px;gap:6px;cursor:pointer;background:transparent;border:none;padding:0;z-index:600}
-.burger span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform 0.35s ease,opacity 0.25s ease}
-.burger.open span:nth-child(1){transform:translateY(3.75px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-3.75px) rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:550;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease}
-.mobile-menu.open{opacity:1;visibility:visible}
-.mobile-menu a{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:2.5rem;color:var(--white);text-decoration:none;letter-spacing:0.05em;line-height:1;transition:opacity 0.25s}
-.mobile-menu a:hover{opacity:0.5}
-.mobile-menu .submenu{display:flex;flex-direction:column;gap:1.2rem;margin-top:-1rem}
-.mobile-menu .submenu a{font-size:1.4rem;color:var(--muted);font-family:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;text-align:center}
-.mobile-menu .submenu a:hover{color:var(--white);opacity:1}
-.mobile-menu .mobile-cta{margin-top:1.5rem;background:var(--white);color:var(--black);padding:1rem 2.5rem;font-family:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
-
-@media(max-width:960px){
-  nav{padding:1.2rem 1.5rem}
-  .nav-links{display:none}
-  .nav-cta{display:none}
-  .burger{display:flex}
-  .hero{height:100vh}
-  .hero-content{padding:0 1.5rem 3rem}
-  .hero-bottom-row{flex-direction:column;align-items:flex-start;gap:1.6rem}
-  .hero-main{max-width:100%}
-  .hero-side{max-width:100%;align-items:flex-start;text-align:left}
-  .hero-rec{top:5.6rem;font-size:0.6rem}
-  .hero-scroll{display:none}
-  section{padding:3.5rem 1.5rem}
-  .services-header{grid-template-columns:1fr;gap:1rem}
-  .service-row{grid-template-columns:40px 1fr auto;column-gap:1rem;padding:1.5rem 0}
-  .portfolio-header{flex-direction:column;gap:1rem}
-  .portfolio-grid{grid-template-columns:1fr 1fr;gap:3px}
-  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g{grid-column:auto;grid-row:auto;height:200px}
-  .p-overlay{opacity:1}
-  .about-inner{grid-template-columns:1fr;gap:2rem}
-  .about-img-wrap{position:static}
-  .about-img{aspect-ratio:2/3;object-position:center 35%}
-  .about-stats{grid-template-columns:1fr 1fr 1fr}
-  .stat{padding:1.2rem 0.8rem}
-  .stat-num{font-size:2rem}
-  .contact-big{font-size:clamp(3rem,12vw,5rem)}
-  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
-  .footer-links{gap:1.5rem}
-  .btn-white{width:100%;text-align:center;padding:1rem 2rem}
-}
-@media(max-width:480px){
-  .portfolio-grid{grid-template-columns:1fr;gap:3px}
-  .p-item.a,.p-item.b,.p-item.c,.p-item.d,.p-item.e,.p-item.f,.p-item.g{height:260px}
-  .about-stats{grid-template-columns:1fr 1fr 1fr}
-  .stat-num{font-size:1.6rem}
-}
-</style>
-</head>
-<body>
-
-<nav id="nav">
-  <div class="nav-logo"><img loading="lazy" src="images/logo.png" alt="5149"></div>
-  <ul class="nav-links">
-    <li class="has-dropdown">
-      <a href="#services">Services</a>
-      <div class="dropdown">
-        <a href="fotografie.html">Fotografie</a>
-        <a href="videografie.html">Videografie</a>
-        <a href="postproduktion.html">Postproduktion</a>
-        <a href="socialmedia.html">Social Media</a>
-      </div>
-    </li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-  </ul>
-  <a href="mailto:kontakt@fiftyone49.de" class="nav-cta">Anfrage stellen</a>
-  <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services">Services</a>
-  <div class="submenu">
-    <a href="fotografie.html">Fotografie</a>
-    <a href="videografie.html">Videografie</a>
-    <a href="postproduktion.html">Postproduktion</a>
-    <a href="socialmedia.html">Social Media</a>
-  </div>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#about">About</a>
-  <a href="#contact">Kontakt</a>
-  <a href="mailto:kontakt@fiftyone49.de" class="mobile-cta">Anfrage stellen</a>
-</div>
-
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <img loading="eager" fetchpriority="high" src="images/hero.jpg" alt="Maximilian Kelm">
-  </div>
-  <div class="hero-scrim"></div>
-  <div class="hero-rec" aria-hidden="true"><span class="rec-dot"></span><span id="recTime">00:00:00:00</span></div>
-  <div class="hero-content">
-    <div class="hero-bottom-row">
-      <div class="hero-main">
-        <p class="hero-eyebrow">Foto - Video - Social</p>
-        <h1 class="hero-title">Das kleine<br>bisschen mehr!</h1>
-      </div>
-      <div class="hero-side">
-        <p class="hero-desc">Fiftyone49. Ich mache Foto, Video &amp; Social und gebe dabei immer das kleine bisschen Extra!</p>
-        <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <div class="marquee-item"><span>Porsche</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Volkswagen</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reebok</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>NutriLuv Health</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Öffentliche BS</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>BetterProtein</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Rehband</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>ThePace</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reboots</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Porsche</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Volkswagen</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reebok</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>NutriLuv Health</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Öffentliche BS</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>BetterProtein</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Rehband</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>ThePace</span><div class="marquee-dot"></div></div><div class="marquee-item"><span>Reboots</span><div class="marquee-dot"></div></div>
-  </div>
-</div>
-
-<section class="services-section" id="services">
-  <div class="reveal">
-    <div class="services-header">
-      <div><div class="section-label">Was ich biete</div><h2 class="section-title">Service</h2></div>
-      <p class="services-intro">Fotografie, Videografie, Postproduktion und das komplette "Besteck" für dein Social Media. Von der Content-Erstellung für deine Socials bis hin zur kompletten Übernahme der Kanäle, damit du als Brand den Kopf frei hast.</p>
-    </div>
-    <div class="services-list">
-      <a href="fotografie.html" class="service-row">
-        <span class="row-index">01</span>
-        <span class="row-body">
-          <span class="row-name">Fotografie</span>
-          <span class="row-desc">Sport, People, Corporate. Bilder die sofort wirken und in Erinnerung bleiben.</span>
-        </span>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="videografie.html" class="service-row">
-        <span class="row-index">02</span>
-        <span class="row-body">
-          <span class="row-name">Videografie</span>
-          <span class="row-desc">Eventbegleitung, Kampagnen, Reels. Schneller, authentischer Content der performt.</span>
-        </span>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="postproduktion.html" class="service-row">
-        <span class="row-index">03</span>
-        <span class="row-body">
-          <span class="row-name">Postproduktion</span>
-          <span class="row-desc">Eigenes oder geliefertes Material. Ich schneide, koloriere und liefere fertig zum Posten.</span>
-        </span>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="socialmedia.html" class="service-row">
-        <span class="row-index">04</span>
-        <span class="row-body">
-          <span class="row-name">Social Media</span>
-          <span class="row-desc">Strategie, Planung und Management. Damit dein Feed wächst und konvertiert.</span>
-        </span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="portfolio-header reveal">
-    <div><div class="section-label">Ausgewählte Arbeiten</div><h2 class="section-title" style="margin-bottom:0">Portfolio</h2></div>
-  </div>
-  <div class="portfolio-grid reveal">
-    <div class="p-item a"><img loading="lazy" src="images/auftrag-porsche.jpg" alt="Porsche GT3" style="object-position:center 80%;"><div class="p-overlay"><div class="p-tag">Automotive · Porsche</div><div class="p-title">Porsche GT3 Cup</div></div></div>
-    <div class="p-item b"><img loading="lazy" src="images/auftrag-kerber.jpg" alt="Kerber" style="object-position:center 30%;"><div class="p-overlay"><div class="p-tag">Corporate · NutriLuv</div><div class="p-title">Kerber Campaign</div></div></div>
-    <div class="p-item c"><img loading="lazy" src="images/auftrag-oslo.jpg" alt="Oslo" style="object-position:center 30%;"><div class="p-overlay"><div class="p-tag">People · Oslo</div><div class="p-title">Better Protein</div></div></div>
-    <div class="p-item d"><img loading="lazy" src="images/auftrag-kerber-training.jpg" alt="Kerber Training" style="object-position:center 25%;"><div class="p-overlay"><div class="p-tag">Sport · NutriLuv</div><div class="p-title">Kerber Training</div></div></div>
-    <div class="p-item e"><img loading="lazy" src="images/auftrag-sport.jpg" alt="Sport" style="object-position:center 15%;"><div class="p-overlay"><div class="p-tag">Sport · Fitness</div><div class="p-title">Athlete Content</div></div></div>
-    <div class="p-item f"><img loading="lazy" src="images/auftrag-pudeldame.jpg" alt="Pudeldame" style="object-position:center 25%;"><div class="p-overlay"><div class="p-tag">Music · Live</div><div class="p-title">Pudeldame</div></div></div>
-    <div class="p-item g"><img loading="lazy" src="images/auftrag-bmg.jpg" alt="BMG" style="object-position:center 60%;"><div class="p-overlay"><div class="p-tag">Sport · Bundesliga</div><div class="p-title">BMG vs Köln</div></div></div>
-  </div>
-</section>
-
-<section class="about-section" id="about">
-  <div class="about-inner">
-    <div class="about-img-wrap reveal">
-      <img loading="lazy" class="about-img" src="images/about.jpg" alt="Maximilian Kelm">
-      <div class="about-caption"><span>Maximilian Kelm</span><span>Braunschweig</span></div>
-    </div>
-    <div class="reveal">
-      <div class="section-label">Über mich</div>
-      <h2 class="section-title">Ich mache.<br>24/7<br>Zuverlässig.</h2>
-      <p class="about-lead">Mein Name ist Maximilian. 31, aus Braunschweig, seit neun Jahren in der Branche.</p>
-      <p class="about-text">Angefangen hab ich als Quereinsteiger in einem Startup, ganz ohne Studium oder Ausbildung im Rücken. Ich hab einfach gemacht, viel ausprobiert und noch mehr dabei gelernt. Neun Jahre und unzählige Shootings später arbeite ich mit großen Marken auf der ganzen Welt zusammen.</p>
-      <p class="about-text">Mein Schwerpunkt liegt auf Content für Social und Web, im Zweifel übernehme ich aber auch gleich den ganzen Markenauftritt. Ein paar eigene Brands durfte ich in den letzten Jahren außerdem aufbauen, verwalten und am Ende erfolgreich übergeben.</p>
-      <div class="about-stats">
-        <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Jahre Erfahrung</div></div>
-        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Projekte</div></div>
-        <div class="stat"><div class="stat-num">DE/WW</div><div class="stat-label">Einsatzgebiet</div></div>
-      </div>
-      <a href="mailto:kontakt@fiftyone49.de" class="btn-white">Zusammenarbeiten</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="contact-inner reveal">
-    <div class="section-label" style="justify-content:center">Kontakt</div>
-    <div class="contact-big">Lass<br><span class="contact-dim">uns was</span><br>kreieren.</div>
-    <a href="mailto:kontakt@fiftyone49.de" class="contact-link"><span>kontakt@fiftyone49.de</span></a>
-  </div>
-</section>
-
-<footer>
-  <span class="footer-copy">© 2025 5149 · Maximilian Kelm</span>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/fiftyone_49/" target="_blank">Instagram</a>
-    <a href="#" onclick="event.preventDefault();window.resetConsent&&window.resetConsent();">Cookie-Einstellungen</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-  </div>
-</footer>
-
-<script>
-var nav = document.getElementById('nav');
-var burger = document.getElementById('burger');
-var mobileMenu = document.getElementById('mobileMenu');
-
-window.addEventListener('scroll', function() {
-  if(window.scrollY > 60) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
-
-burger.addEventListener('click', function() {
-  burger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-});
-
-mobileMenu.querySelectorAll('a').forEach(function(link) {
-  link.addEventListener('click', function() {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-(function() {
-  var recEl = document.getElementById('recTime');
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!recEl || reduceMotion) return;
-  var start = Date.now();
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-  function tick() {
-    var totalFrames = Math.floor((Date.now() - start) / 1000 * 24);
-    var frames = totalFrames % 24;
-    var totalSeconds = Math.floor(totalFrames / 24);
-    var seconds = totalSeconds % 60;
-    var totalMinutes = Math.floor(totalSeconds / 60);
-    var minutes = totalMinutes % 60;
-    var hours = Math.floor(totalMinutes / 60);
-    recEl.textContent = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds) + ':' + pad(frames);
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
-
-if('IntersectionObserver' in window) {
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e, i) {
-      if(e.isIntersecting) {
-        setTimeout(function() { e.target.classList.add('visible'); }, i * 80);
-        obs.unobserve(e.target);
-      }
-    });
-  }, {threshold: 0.1});
-  document.querySelectorAll('.reveal').forEach(function(r) { obs.observe(r); });
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5149 · Maximilian Kelm | Foto, Video und Social aus Braunschweig</title>
+<meta name="description" content="Fotograf und Videograf aus Braunschweig. Sport, Portraits, Marken. Ich drehe allein, schneide selbst und liefere bei eiligen Jobs am selben Tag.">
+<link rel="canonical" href="https://fiftyone49.de/">
+<meta name="theme-color" content="#060606">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="5149 · Maximilian Kelm">
+<meta property="og:url" content="https://fiftyone49.de/">
+<meta property="og:title" content="5149 · Maximilian Kelm | Foto, Video und Social aus Braunschweig">
+<meta property="og:description" content="Fotograf und Videograf aus Braunschweig. Sport, Portraits, Marken. Ich drehe allein, schneide selbst und liefere bei eiligen Jobs am selben Tag.">
+<meta property="og:image" content="https://fiftyone49.de/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5149 · Maximilian Kelm | Foto, Video und Social aus Braunschweig">
+<meta name="twitter:description" content="Fotograf und Videograf aus Braunschweig. Sport, Portraits, Marken. Ich drehe allein, schneide selbst und liefere bei eiligen Jobs am selben Tag.">
+<meta name="twitter:image" content="https://fiftyone49.de/og-image.jpg">
+<link rel="preload" href="/assets/fonts/bebas-neue-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-300-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "5149 – Maximilian Kelm",
+  "description": "Fotograf und Videograf aus Braunschweig. Sport, Portraits, Marken. Ich drehe allein, schneide selbst und liefere bei eiligen Jobs am selben Tag.",
+  "url": "https://fiftyone49.de/",
+  "image": "https://fiftyone49.de/og-image.jpg",
+  "logo": "https://fiftyone49.de/images/logo.png",
+  "email": "kontakt@fiftyone49.de",
+  "founder": { "@type": "Person", "name": "Maximilian Kelm" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Korfesstraße 7",
+    "postalCode": "38104",
+    "addressLocality": "Braunschweig",
+    "addressCountry": "DE"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Deutschland" },
+    { "@type": "Place", "name": "Weltweit" }
+  ],
+  "sameAs": ["https://www.instagram.com/fiftyone_49/"]
 }
 </script>
-<script src="consent.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__inner wrap">
+    <a class="site-logo" href="/" aria-label="5149, zur Startseite"><picture><source srcset="/images/logo.webp" type="image/webp"><img src="/images/logo.png" width="245" height="78" alt=""></picture></a>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a class="ui-link" href="/">Start</a></li>
+        <li><a class="ui-link" href="/leistungen.html">Leistungen</a></li>
+        <li><a class="ui-link" href="/arbeiten.html">Arbeiten</a></li>
+        <li><a class="ui-link" href="/#ueber-mich">Über mich</a></li>
+        <li><a class="ui-link" href="/#kontakt">Kontakt</a></li>
+      </ul>
+      <a class="btn btn--primary btn--small" href="/#kontakt">Anfrage stellen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen"><span class="burger__line"></span><span class="burger__line"></span></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <ul class="menu__list">
+    <li><a class="menu__link" href="/">Start</a></li>
+    <li><a class="menu__link" href="/leistungen.html">Leistungen</a></li>
+    <li><a class="menu__link" href="/arbeiten.html">Arbeiten</a></li>
+    <li><a class="menu__link" href="/#ueber-mich">Über mich</a></li>
+    <li><a class="menu__link" href="/#kontakt">Kontakt</a></li>
+  </ul>
+  <a class="btn btn--primary" href="/#kontakt">Anfrage stellen</a>
+</div>
+
+<main id="inhalt" tabindex="-1">
+
+  <section class="hero">
+    <div class="hero__text">
+      <p class="t-label">Foto, Video, Social · Braunschweig</p>
+      <h1 class="t-hero">Das kleine<br>bisschen<br>mehr!</h1>
+      <p class="hero__intro t-light">Ich fotografiere und filme für Athleten und Marken. Meistens am Spielfeldrand, manchmal im Studio, oft irgendwo dazwischen. Seit neun Jahren. Ich funktioniere auch ohne Briefing und liefere das mit, was nicht zwangsläufig drinsteht.</p>
+    </div>
+    <div class="hero__media">
+      <picture><source srcset="/images/hero.webp" type="image/webp"><img src="/images/hero.jpg" width="900" height="1125" alt="Maximilian Kelm" loading="eager" fetchpriority="high"></picture>
+    </div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee__track">
+      <ul class="marquee__list">
+        <li>Porsche</li><li>Volkswagen</li><li>Reebok</li><li>NutriLuv Health</li><li>Öffentliche BS</li><li>BetterProtein</li><li>Rehband</li><li>ThePace</li><li>Reboots</li>
+      </ul>
+      <ul class="marquee__list" aria-hidden="true">
+        <li>Porsche</li><li>Volkswagen</li><li>Reebok</li><li>NutriLuv Health</li><li>Öffentliche BS</li><li>BetterProtein</li><li>Rehband</li><li>ThePace</li><li>Reboots</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="section section--gray" id="services">
+    <div class="wrap">
+      <div class="section-head section-head--split reveal">
+        <div class="stack stack--tight">
+          <p class="t-label">Was ich mache</p>
+          <h2 class="t-h2">Services</h2>
+        </div>
+        <p class="measure">Vier Sachen. Die meisten buchen zwei oder drei davon zusammen, weil es einfacher ist, wenn eine Person dreht, schneidet und weiß, wo das Material hinterher hin soll.</p>
+      </div>
+      <ul class="grid grid--4 cards reveal" role="list">
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect x="3" y="10" width="34" height="24" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M13 10 L15 6 L25 6 L27 10" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <circle cx="20" cy="22" r="6" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="20" cy="22" r="2" fill="currentColor"/>
+          </svg>
+          <h3 class="t-h3" id="svc-fotografie">Fotografie</h3>
+          <p class="t-muted">Bundesliga, Portraits, Produkte. Am liebsten da, wo es schnell gehen muss.</p>
+          <a class="ui-link card__link" href="/leistungen.html#fotografie" aria-describedby="svc-fotografie">Mehr Infos</a>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect x="4" y="10" width="26" height="20" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            <polygon points="30,15 36,11 36,29 30,25" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+            <polygon points="14,16 14,24 22,20" fill="currentColor"/>
+          </svg>
+          <h3 class="t-h3" id="svc-videografie">Videografie</h3>
+          <p class="t-muted">Events, Kampagnen, Reels. Ich drehe allein und schneide selbst. Bei eiligen Jobs bekommst du das Material noch am selben Tag.</p>
+          <a class="ui-link card__link" href="/leistungen.html#videografie" aria-describedby="svc-videografie">Mehr Infos</a>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect x="4" y="9" width="14" height="3.5" fill="currentColor" opacity="0.85"/>
+            <rect x="20" y="9" width="16" height="3.5" fill="currentColor" opacity="0.4"/>
+            <rect x="4" y="15" width="22" height="3.5" fill="currentColor" opacity="0.4"/>
+            <rect x="28" y="15" width="8" height="3.5" fill="currentColor" opacity="0.85"/>
+            <rect x="4" y="21" width="10" height="3.5" fill="currentColor" opacity="0.85"/>
+            <rect x="16" y="21" width="20" height="3.5" fill="currentColor" opacity="0.4"/>
+            <rect x="4" y="27" width="20" height="3.5" fill="currentColor" opacity="0.4"/>
+            <rect x="26" y="27" width="10" height="3.5" fill="currentColor" opacity="0.85"/>
+          </svg>
+          <h3 class="t-h3" id="svc-postproduktion">Postproduktion</h3>
+          <p class="t-muted">Du schickst mir dein Rohmaterial, ich schicke dir ein fertiges Video zurück. Festpreis, eine Korrekturschleife inklusive.</p>
+          <a class="ui-link card__link" href="/leistungen.html#postproduktion" aria-describedby="svc-postproduktion">Mehr Infos</a>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect x="6" y="6" width="8" height="8" fill="currentColor" opacity="0.4"/>
+            <rect x="16" y="6" width="8" height="8" fill="currentColor"/>
+            <rect x="26" y="6" width="8" height="8" fill="currentColor" opacity="0.4"/>
+            <rect x="6" y="16" width="8" height="8" fill="currentColor"/>
+            <rect x="16" y="16" width="8" height="8" fill="currentColor" opacity="0.4"/>
+            <rect x="26" y="16" width="8" height="8" fill="currentColor"/>
+            <rect x="6" y="26" width="8" height="8" fill="currentColor" opacity="0.4"/>
+            <rect x="16" y="26" width="8" height="8" fill="currentColor"/>
+            <rect x="26" y="26" width="8" height="8" fill="currentColor" opacity="0.4"/>
+          </svg>
+          <h3 class="t-h3" id="svc-socialmedia">Social Media</h3>
+          <p class="t-muted">Von der Strategie bis zum kompletten Account. Ich war selbst Social-Media-Manager, bevor ich das für andere gemacht habe.</p>
+          <a class="ui-link card__link" href="/leistungen.html#socialmedia" aria-describedby="svc-socialmedia">Mehr Infos</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="t-label">Ausgewählte Arbeiten</p>
+        <h2 class="t-h2">Portfolio</h2>
+      </div>
+      <div class="pf reveal">
+        <figure class="media media--landscape">
+          <picture><source srcset="/images/auftrag-bmg.webp" type="image/webp"><img class="op-60" src="/images/auftrag-bmg.jpg" width="1000" height="667" alt="BMG" loading="lazy" decoding="async"></picture>
+          <figcaption class="media__caption"><span class="media__title">BMG vs Köln</span></figcaption>
+        </figure>
+        <figure class="media media--third">
+          <picture><source srcset="/images/auftrag-porsche.webp" type="image/webp"><img class="op-80" src="/images/auftrag-porsche.jpg" width="1000" height="1500" alt="Porsche GT3" loading="lazy" decoding="async"></picture>
+          <figcaption class="media__caption"><span class="media__title">Porsche GT3 Cup</span></figcaption>
+        </figure>
+        <figure class="media media--third">
+          <picture><source srcset="/images/auftrag-oslo.webp" type="image/webp"><img class="op-30" src="/images/auftrag-oslo.jpg" width="700" height="875" alt="Oslo" loading="lazy" decoding="async"></picture>
+          <figcaption class="media__caption"><span class="media__title">BetterProtein</span></figcaption>
+        </figure>
+        <figure class="media">
+          <picture><source srcset="/images/auftrag-kerber.webp" type="image/webp"><img class="op-30" src="/images/auftrag-kerber.jpg" width="900" height="1125" alt="Kerber" loading="lazy" decoding="async"></picture>
+          <figcaption class="media__caption"><span class="media__title">Kerber Campaign</span></figcaption>
+        </figure>
+        <figure class="media">
+          <picture><source srcset="/images/auftrag-kerber-training.webp" type="image/webp"><img class="op-25" src="/images/auftrag-kerber-training.jpg" width="900" height="1124" alt="Kerber Training" loading="lazy" decoding="async"></picture>
+          <figcaption class="media__caption"><span class="media__title">Kerber Training</span></figcaption>
+        </figure>
+        <figure class="media media--span-md">
+          <picture><source srcset="/images/auftrag-sport.webp" type="image/webp"><img class="op-15" src="/images/auftrag-sport.jpg" width="900" height="1124" alt="Sport" loading="lazy" decoding="async"></picture>
+          <figcaption class="media__caption"><span class="media__title">Athlete Content</span></figcaption>
+        </figure>
+      </div>
+      <p class="pf__more reveal"><a class="btn btn--ghost btn--block-mobile" href="/arbeiten.html">Alle Arbeiten ansehen</a></p>
+    </div>
+  </section>
+
+  <section class="section section--gray" id="vertrauen">
+    <div class="wrap split">
+      <div class="stack stack--tight reveal">
+        <p class="t-label">Zusammenarbeit</p>
+        <h2 class="t-h2">Was ich sehe,<br>bleibt bei mir</h2>
+      </div>
+      <div class="stack reveal">
+        <p class="measure">Ich habe schon mit bekannten Sportlern und mit CEOs großer Firmen gearbeitet. Vertraulichkeit ist dabei der Normalfall und nichts, was man extra vereinbaren müsste.</p>
+        <blockquote class="quote measure"><p>„Egal mit wem ich arbeite. Ich bin Creator, nicht Fan."</p></blockquote>
+        <p class="measure">Wer schon mal mit jemandem gedreht hat, der das anders sieht, weiß, warum das ein Argument ist.</p>
+        <div class="trio">
+          <div class="media media--portrait"><picture><source srcset="/images/trust-luca-netz.webp" type="image/webp"><img class="op-20" src="/images/trust-luca-netz.jpg" width="600" height="900" alt="Luca Netz" loading="lazy" decoding="async"></picture></div>
+          <div class="media media--portrait"><picture><source srcset="/images/trust-kerber-lab.webp" type="image/webp"><img src="/images/trust-kerber-lab.jpg" width="600" height="749" alt="Kerber Lab" loading="lazy" decoding="async"></picture></div>
+          <div class="media media--portrait"><picture><source srcset="/images/trust-vw-event.webp" type="image/webp"><img class="op-20" src="/images/trust-vw-event.jpg" width="600" height="750" alt="VW Event" loading="lazy" decoding="async"></picture></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ueber-mich">
+    <div class="wrap split">
+      <div class="media about__media reveal">
+        <picture><source srcset="/images/about.webp" type="image/webp"><img class="op-35" src="/images/about.jpg" width="900" height="1349" alt="Maximilian Kelm" loading="lazy" decoding="async"></picture>
+      </div>
+      <div class="stack reveal">
+        <div class="stack stack--tight">
+          <p class="t-label">Über mich</p>
+          <h2 class="t-h2">Maximilian,<br>31, aus<br>Braunschweig</h2>
+        </div>
+        <p class="measure">Quereinsteiger. Kein Studium, keine Ausbildung, angefangen habe ich in einem Startup und mir den Rest über neun Jahre und ein paar hundert Jobs selbst beigebracht. Das ist nichts, worauf man besonders stolz sein muss. Es erklärt nur, warum ich lieber drehe als über Konzepte rede.</p>
+        <p class="measure">Heute arbeite ich viel für Marken, Agenturen und Athleten. Warum die meisten wiederkommen, ist ziemlich unspektakulär: Ich bin pünktlich da, ich frage nicht nach drei Moodboards, und das Material ist früher fertig, als sie gedacht haben.</p>
+        <dl class="stats">
+          <div class="stat"><dt class="t-label">Jahre Erfahrung</dt><dd class="stat__num">9+</dd></div>
+          <div class="stat"><dt class="t-label">Projekte</dt><dd class="stat__num">100+</dd></div>
+          <div class="stat"><dt class="t-label">Einsatzgebiet</dt><dd class="stat__num">DE/WW</dd></div>
+        </dl>
+        <p><a class="btn btn--primary btn--block-mobile" href="#kontakt">Anfrage stellen</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gray" id="kontakt">
+    <div class="wrap split">
+      <div class="stack reveal">
+        <h2 class="t-h2">Erzähl mir,<br>was du<br>vorhast</h2>
+        <p class="measure">Kurze Mail reicht. Was, wann, wo, ungefähres Budget. Ich melde mich in der Regel am selben Tag.</p>
+        <p><a class="link" href="mailto:kontakt@fiftyone49.de">kontakt@fiftyone49.de</a></p>
+      </div>
+      <div class="stack reveal">
+        <p>Oder direkt hier, dauert zwei Minuten.</p>
+        <form class="form" name="anfrage" method="POST" action="/?anfrage=gesendet#kontakt" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="anfrage">
+          <p class="visually-hidden" aria-hidden="true"><input name="bot-field" tabindex="-1" autocomplete="off"></p>
+          <div class="grid grid--2">
+            <div class="field">
+              <label class="t-label" for="f-name">Name</label>
+              <input class="input" id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label class="t-label" for="f-email">E-Mail</label>
+              <input class="input" id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="grid grid--2">
+            <div class="field">
+              <label class="t-label" for="f-leistung">Leistung</label>
+              <select class="input" id="f-leistung" name="leistung">
+                <option>Fotografie</option>
+                <option>Videografie</option>
+                <option>Postproduktion</option>
+                <option>Social Media</option>
+                <option selected>Weiß ich noch nicht</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="t-label" for="f-zeitraum">Zeitraum (optional)</label>
+              <input class="input" id="f-zeitraum" name="zeitraum" type="text">
+            </div>
+          </div>
+          <div class="field">
+            <label class="t-label" for="f-nachricht">Nachricht</label>
+            <textarea class="input" id="f-nachricht" name="nachricht" rows="6" required></textarea>
+          </div>
+          <p><button class="btn btn--primary btn--block-mobile" type="submit">Anfrage abschicken</button></p>
+          <p class="form__note">Deine Angaben nutze ich nur, um dir zu antworten. Mehr dazu in der <a class="link" href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+        </form>
+        <p class="t-h3" id="anfrage-gesendet" tabindex="-1" hidden>Angekommen. Ich melde mich in der Regel noch am selben Tag.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner wrap">
+    <p class="site-footer__copy">© <span data-year>2026</span> 5149 · Maximilian Kelm</p>
+    <ul class="site-footer__list">
+      <li><a class="ui-link" href="https://www.instagram.com/fiftyone_49/" target="_blank" rel="noopener" aria-label="Instagram von 5149, öffnet in neuem Tab">Instagram</a></li>
+      <li><button class="ui-link" type="button" data-consent-reset>Cookie-Einstellungen</button></li>
+      <li><a class="ui-link" href="/impressum.html">Impressum</a></li>
+      <li><a class="ui-link" href="/datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
 </body>
 </html>

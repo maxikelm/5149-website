@@ -1,84 +1,103 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impressum – 5149 · Maximilian Kelm</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--black:#060606;--white:#eeebe4;--gray:#0e0e0e;--border:rgba(255,255,255,0.07);--muted:rgba(238,235,228,0.45)}
-body{background:var(--black);color:var(--white);font-family:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.7;font-weight:300}
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3.5rem;background:rgba(6,6,6,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:1.4rem;letter-spacing:0.1em;color:var(--white);text-decoration:none}
-.nav-back{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.25s}
-.nav-back:hover{color:var(--white)}
-main{max-width:800px;margin:0 auto;padding:9rem 2rem 6rem}
-h1{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:clamp(3rem,6vw,5rem);line-height:1;margin-bottom:3rem;letter-spacing:0.02em}
-h2{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:1.3rem;letter-spacing:0.1em;margin:2.5rem 0 1rem;color:var(--white)}
-p{margin-bottom:1rem;color:rgba(238,235,228,0.75);font-size:0.95rem}
-a{color:var(--white);text-decoration:underline;text-underline-offset:3px;transition:opacity 0.2s}
-a:hover{opacity:0.7}
-strong{color:var(--white);font-weight:500}
-footer{border-top:1px solid var(--border);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center}
-.footer-copy{font-size:0.7rem;color:var(--muted)}
-.footer-links{display:flex;gap:2.5rem}
-.footer-links a{font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.25s}
-.footer-links a:hover{color:var(--white)}
-@media(max-width:768px){
-  nav{padding:1.2rem 1.5rem}
-  main{padding:7rem 1.5rem 4rem}
-  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
-  .footer-links{gap:1.2rem;flex-wrap:wrap;justify-content:center}
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum | 5149 Maximilian Kelm</title>
+<link rel="canonical" href="https://fiftyone49.de/impressum.html">
+<meta name="theme-color" content="#060606">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="5149 · Maximilian Kelm">
+<meta property="og:url" content="https://fiftyone49.de/impressum.html">
+<meta property="og:title" content="Impressum | 5149 Maximilian Kelm">
+<meta property="og:image" content="https://fiftyone49.de/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Impressum | 5149 Maximilian Kelm">
+<meta name="twitter:image" content="https://fiftyone49.de/og-image.jpg">
+<link rel="preload" href="/assets/fonts/bebas-neue-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-300-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/consent.js" defer></script>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="nav-logo">5149</a>
-  <a href="index.html" class="nav-back">← Zurück</a>
-</nav>
-<main>
-  <h1>Impressum</h1>
-  
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__inner wrap">
+    <a class="site-logo" href="/" aria-label="5149, zur Startseite"><picture><source srcset="/images/logo.webp" type="image/webp"><img src="/images/logo.png" width="245" height="78" alt=""></picture></a>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a class="ui-link" href="/">Start</a></li>
+        <li><a class="ui-link" href="/leistungen.html">Leistungen</a></li>
+        <li><a class="ui-link" href="/arbeiten.html">Arbeiten</a></li>
+        <li><a class="ui-link" href="/#ueber-mich">Über mich</a></li>
+        <li><a class="ui-link" href="/#kontakt">Kontakt</a></li>
+      </ul>
+      <a class="btn btn--primary btn--small" href="/#kontakt">Anfrage stellen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen"><span class="burger__line"></span><span class="burger__line"></span></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <ul class="menu__list">
+    <li><a class="menu__link" href="/">Start</a></li>
+    <li><a class="menu__link" href="/leistungen.html">Leistungen</a></li>
+    <li><a class="menu__link" href="/arbeiten.html">Arbeiten</a></li>
+    <li><a class="menu__link" href="/#ueber-mich">Über mich</a></li>
+    <li><a class="menu__link" href="/#kontakt">Kontakt</a></li>
+  </ul>
+  <a class="btn btn--primary" href="/#kontakt">Anfrage stellen</a>
+</div>
+
+<main id="inhalt" tabindex="-1" class="legal">
+  <div class="wrap">
+  <h1 class="t-h2">Impressum</h1>
+
   <h2>Angaben gemäß § 5 DDG</h2>
   <p>Maximilian Kelm<br>Korfesstraße 7<br>38104 Braunschweig<br>Deutschland</p>
-  
+
   <h2>Vertretungsberechtigt</h2>
   <p>Maximilian Kelm</p>
-  
+
   <h2>Kontakt</h2>
   <p>E-Mail: <a href="mailto:kontakt@fiftyone49.de">kontakt@fiftyone49.de</a></p>
-  
+
   <h2>Umsatzsteuer-ID</h2>
   <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: <strong>DE459038846</strong></p>
-  
+
   <h2>Berufsbezeichnung</h2>
   <p>Fotograf, Videograf und Social Media Berater (Einzelunternehmen, Deutschland)</p>
-  
+
   <h2>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
   <p>Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-  
+
   <h2>Haftung für Inhalte</h2>
   <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
   <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.</p>
-  
+
   <h2>Haftung für Links</h2>
   <p>Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
   <p>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.</p>
-  
+
   <h2>Urheberrecht</h2>
   <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
   <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.</p>
+  </div>
 </main>
-<footer>
-  <span class="footer-copy">© 2026 5149 · Maximilian Kelm</span>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/fiftyone_49/" target="_blank" rel="noopener">Instagram</a>
-    <a href="#" onclick="event.preventDefault();window.resetConsent&&window.resetConsent();">Cookie-Einstellungen</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
+
+<footer class="site-footer">
+  <div class="site-footer__inner wrap">
+    <p class="site-footer__copy">© <span data-year>2026</span> 5149 · Maximilian Kelm</p>
+    <ul class="site-footer__list">
+      <li><a class="ui-link" href="https://www.instagram.com/fiftyone_49/" target="_blank" rel="noopener" aria-label="Instagram von 5149, öffnet in neuem Tab">Instagram</a></li>
+      <li><button class="ui-link" type="button" data-consent-reset>Cookie-Einstellungen</button></li>
+      <li><a class="ui-link" href="/impressum.html">Impressum</a></li>
+      <li><a class="ui-link" href="/datenschutz.html">Datenschutz</a></li>
+    </ul>
   </div>
 </footer>
-<script src="consent.js" defer></script>
 </body>
 </html>
